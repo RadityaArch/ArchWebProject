@@ -6,17 +6,20 @@
   <title>Glass Dashboard Collection</title>
   <style>
     :root {
-      --bg-primary: #f8fbff;
-      --bg-layer: #ffffff;
-      --surface: rgba(255, 255, 255, 0.92);
-      --surface-strong: rgba(255, 255, 255, 1);
+      --bg: #f8fbff;
+      --surface: #ffffff;
+      --surface-strong: #f6f9ff;
       --text: #0f172a;
       --muted: #475569;
       --accent: #2563eb;
-      --accent-soft: #dbeeff;
+      --accent-soft: rgba(37, 99, 235, 0.12);
       --border: rgba(15, 23, 42, 0.08);
-      --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-      --focus: rgba(59, 130, 246, 0.18);
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
+      --shadow-strong: 0 24px 60px rgba(15, 23, 42, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -24,111 +27,54 @@
       min-height: 100vh;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text);
-      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 18%),
-        linear-gradient(180deg, #f8fbff 0%, #eaf2ff 35%, #e5eeff 100%);
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(64px);
-      opacity: 0.45;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::before {
-      width: 380px;
-      height: 380px;
-      background: rgba(37, 99, 235, 0.24);
-      top: -100px;
-      left: -100px;
-    }
-
-    body::after {
-      width: 420px;
-      height: 420px;
-      background: rgba(59, 130, 246, 0.18);
-      bottom: -130px;
-      right: -90px;
+      background: var(--bg);
     }
 
     .dashboard {
       width: min(1180px, calc(100% - 32px));
       margin: 24px auto;
       padding: 24px;
-      position: relative;
-      z-index: 1;
     }
 
     .hero {
       padding: 32px;
-      border-radius: 34px;
+      border-radius: 28px;
       background: var(--surface);
       border: 1px solid var(--border);
-      box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+      box-shadow: var(--shadow);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
       flex-wrap: wrap;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      right: -60px;
-      top: 12px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(59, 130, 246, 0.14);
-      filter: blur(18px);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 36%),
-        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 32%);
-      pointer-events: none;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 8px 16px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.14);
-      border: 1px solid rgba(37, 99, 235, 0.22);
-      color: #1e40af;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      color: #1c3aa9;
       font-size: 0.8rem;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(1.9rem, 3vw, 2.9rem);
-      line-height: 1.04;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.05;
       letter-spacing: -0.03em;
     }
 
     .hero p {
       margin: 0;
       color: var(--muted);
-      max-width: 700px;
+      max-width: 720px;
       line-height: 1.75;
-      font-size: 1.02rem;
+      font-size: 1rem;
     }
 
     .hero-actions {
@@ -138,25 +84,22 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       min-width: 220px;
-      z-index: 1;
     }
 
     .hero-pill,
     .theme-toggle {
       padding: 14px 20px;
       border-radius: 999px;
-      background: var(--surface);
+      background: var(--surface-strong);
       border: 1px solid var(--border);
       font-weight: 700;
-      white-space: nowrap;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .hero-pill {
       color: var(--accent);
       background: rgba(37, 99, 235, 0.07);
-      border-color: rgba(37, 99, 235, 0.22);
-      box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
+      border-color: rgba(37, 99, 235, 0.16);
     }
 
     .theme-toggle {
@@ -165,16 +108,16 @@
       align-items: center;
       gap: 12px;
       color: var(--text);
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(96, 165, 250, 0.1));
-      border-color: rgba(59, 130, 246, 0.32);
-      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.10);
-      min-width: 148px;
+      background: var(--surface-strong);
+      border-color: var(--border);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+      min-width: 150px;
       justify-content: center;
     }
 
     .theme-toggle:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 36px rgba(37, 99, 235, 0.16);
+      box-shadow: 0 22px 34px rgba(15, 23, 42, 0.12);
     }
 
     .theme-toggle .toggle-icon {
@@ -184,10 +127,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.95);
-      color: #2563eb;
-      font-size: 0.92rem;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--accent);
+      font-size: 0.95rem;
     }
 
     .grid {
@@ -201,45 +143,19 @@
       display: block;
       padding: 26px;
       min-height: 190px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(235, 243, 255, 0.95));
-      border: 1px solid rgba(37, 99, 235, 0.14);
-      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+      border-radius: 24px;
+      background: var(--surface);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
       color: var(--text);
       text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .card-link::after {
-      content: "";
-      position: absolute;
-      top: -24px;
-      right: -34px;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: rgba(59, 130, 246, 0.08);
-      filter: blur(12px);
-      pointer-events: none;
-      z-index: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
     }
 
     .card-link:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 32px 82px rgba(15, 23, 42, 0.22), inset 0 0 0 1px rgba(37, 99, 235, 0.18);
-      border-color: rgba(37, 99, 235, 0.26);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(221, 236, 255, 0.98));
-    }
-
-    .card-link::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(59, 130, 246, 0.08), transparent 42%);
-      pointer-events: none;
-      z-index: 0;
+      transform: translateY(-5px);
+      box-shadow: 0 26px 58px rgba(15, 23, 42, 0.14);
+      border-color: rgba(37, 99, 235, 0.18);
     }
 
     .card-icon {
@@ -251,9 +167,8 @@
       border-radius: 14px;
       background: rgba(37, 99, 235, 0.12);
       color: #1e40af;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 16px;
-      z-index: 1;
     }
 
     .card-badge {
@@ -263,19 +178,16 @@
       width: 44px;
       height: 44px;
       border-radius: 16px;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.24), rgba(59, 130, 246, 0.16));
+      background: var(--accent);
       color: #ffffff;
       font-weight: 700;
       margin-bottom: 16px;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.1);
-      z-index: 1;
     }
 
     .card-link h3 {
       margin: 0 0 10px;
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       letter-spacing: -0.02em;
-      z-index: 1;
     }
 
     .card-link p {
@@ -283,18 +195,15 @@
       color: var(--muted);
       line-height: 1.75;
       font-size: 0.98rem;
-      z-index: 1;
     }
 
     .arrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: auto;
       font-weight: 700;
       letter-spacing: 0.03em;
       color: var(--accent);
-      z-index: 1;
     }
 
     .arrow::after {
@@ -305,10 +214,9 @@
       margin-top: 24px;
       padding: 20px 22px;
       border-radius: 22px;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.16);
+      background: rgba(37, 99, 235, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.12);
       color: var(--muted);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
     }
 
     .tip-box strong {
@@ -318,96 +226,83 @@
     .copy-note {
       margin-top: 10px;
       font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    .theme-toggle::after {
-      content: "";
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 8px solid currentColor;
-      display: inline-block;
-      transform: translateY(1px);
+      opacity: 0.92;
     }
 
     body.dark-mode {
-      --bg-primary: #040a1d;
-      --bg-layer: #081227;
-      --surface: rgba(10, 24, 50, 0.92);
-      --surface-strong: rgba(10, 24, 50, 0.98);
-      --text: #e2e8f0;
+      --bg: #05070f;
+      --surface: #0b1221;
+      --surface-strong: #0f172c;
+      --text: #f8fbff;
       --muted: #94a3b8;
       --accent: #38bdf8;
-      --accent-soft: #0f172a;
-      --border: rgba(148, 163, 184, 0.16);
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.09), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 18%),
-        linear-gradient(180deg, #040a1d 0%, #071025 45%, #081227 100%);
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --border: rgba(56, 189, 248, 0.24);
+      --shadow: 0 24px 65px rgba(0, 0, 0, 0.35);
+      background: var(--bg);
+    }
+
+    body.dark-mode .hero,
+    body.dark-mode .card-link,
+    body.dark-mode .theme-toggle {
+      background: var(--surface);
     }
 
     body.dark-mode .hero {
-      background: rgba(8, 18, 39, 0.95);
+      border-color: var(--border);
       box-shadow: var(--shadow);
-      border-color: var(--border);
     }
 
-    body.dark-mode .hero::after {
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 36%),
-        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.06), transparent 32%);
-    }
-
-    body.dark-mode .hero-pill,
-    body.dark-mode .theme-toggle,
-    body.dark-mode .card-link {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: var(--border);
-    }
-
-    body.dark-mode .card-link {
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
-    }
-
-    body.dark-mode .card-link::before {
-      background: linear-gradient(120deg, rgba(56, 189, 248, 0.08), transparent 42%);
-    }
-
-    body.dark-mode .card-badge {
-      color: #93c5fd;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(14, 165, 233, 0.12));
-    }
-
-    body.dark-mode .tip-box {
-      background: rgba(15, 23, 42, 0.72);
-      border-color: rgba(148, 163, 184, 0.16);
-      color: #cbd5e1;
-    }
-
-    body.dark-mode .tip-box strong {
-      color: #f8fafc;
+    body.dark-mode .hero-pill {
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.18);
     }
 
     body.dark-mode .theme-toggle {
-      background: linear-gradient(135deg, rgba(96, 165, 250, 0.18), rgba(56, 189, 248, 0.14));
+      border-color: var(--border);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+      color: var(--text);
+    }
+
+    body.dark-mode .theme-toggle:hover {
+      box-shadow: 0 22px 36px rgba(0, 0, 0, 0.36);
     }
 
     body.dark-mode .theme-toggle .toggle-icon {
       background: rgba(255, 255, 255, 0.08);
-      color: #dbeafe;
+      color: var(--accent);
     }
 
     body.dark-mode .card-link {
-      background: linear-gradient(180deg, rgba(10, 24, 50, 0.92), rgba(15, 23, 42, 0.96));
+      border-color: var(--border);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.25);
+      color: var(--text);
     }
 
-    body.dark-mode .card-link::after {
-      background: rgba(56, 189, 248, 0.12);
+    body.dark-mode .card-link:hover {
+      box-shadow: 0 28px 72px rgba(0, 0, 0, 0.3);
+      border-color: rgba(56, 189, 248, 0.28);
     }
 
-    body.dark-mode .card-link::before {
-      background: linear-gradient(120deg, rgba(56, 189, 248, 0.1), transparent 42%);
+    body.dark-mode .card-icon {
+      background: rgba(56, 189, 248, 0.14);
+      color: #dbeafe;
+    }
+
+    body.dark-mode .card-badge {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    body.dark-mode .tip-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(56, 189, 248, 0.18);
+      color: #cbd5e1;
+    }
+
+    body.dark-mode .tip-box strong {
+      color: #f8fbff;
     }
 
     @media (max-width: 680px) {
@@ -471,11 +366,17 @@
       <a class="card-link" href="BakteriKelasX.html" target="_blank">
         <span class="card-icon">🧬</span>
         <span class="card-badge">01</span>
-        <h3>Materi Bakteri Kelas X</h3>
+        <h3>Bakteri Kelas X</h3>
         <p>Biologi, rangkuman materi Bakteri.</p>
         <span class="arrow">Pelajari →</span>
       </a>
-
+      <a class="card-link" href="EkologiKelasX.html" target="_blank">
+        <span class="card-icon">🧬</span>
+        <span class="card-badge">01</span>
+        <h3>Ekologi Kelas X</h3>
+        <p>Biologi, rangkuman materi Ekologi.</p>
+        <span class="arrow">Pelajari →</span>
+      </a>
     </section>
 
     <section class="tip-box">

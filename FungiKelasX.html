@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungi-Pedia 🍄 | Catatan Belajar Digital Interaktif</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f4',
+                            100: '#fbe5ea',
+                            200: '#f7ccd7',
+                            300: '#f1a3b8',
+                            400: '#e77191',
+                            500: '#d7456f',
+                            600: '#c12d57',
+                            700: '#a22043',
+                            800: '#871d3a',
+                            900: '#711c33',
+                            stone: '#4a2831'
+                        },
+                        sage: {
+                            50: '#f4f7f5',
+                            100: '#e5ebe7',
+                            500: '#7d9a86',
+                            800: '#3e4e43'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .sidebar-active {
+            color: #d7456f;
+            font-weight: 700;
+            border-left: 3px solid #d7456f;
+            padding-left: 0.75rem;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #f2a3b8;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-[#faf6f7] text-gray-800 font-sans antialiased selection:bg-brand-200 selection:text-brand-900">
+
+    <!-- Top Banner & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🍄</span>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-brand-800">Fungi<span class="text-brand-500">Pedia</span></span>
+                    <span class="block text-[10px] text-sage-500 font-semibold tracking-widest uppercase">Catatan Digital Interaktif</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleStudyMode()" id="studyModeBtn" class="flex items-center space-x-2 bg-brand-50 text-brand-600 px-4 py-2 rounded-full border border-brand-100 hover:bg-brand-100 transition-all font-semibold text-sm">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <span>Mode Flashcard</span>
+                </button>
+                <a href="#kuis-interaktif" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md shadow-brand-500/20 flex items-center space-x-2">
+                    <i data-lucide="award" class="w-4 h-4"></i>
+                    <span>Uji Pemahaman</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Sticky Sidebar Navigation (Daftar Isi) -->
+            <aside class="w-full lg:w-64 shrink-0 lg:sticky lg:top-24 h-fit max-h-[80vh] overflow-y-auto custom-scrollbar bg-white p-6 rounded-2xl border border-brand-100 shadow-sm hidden lg:block">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-brand-500 mb-4 flex items-center space-x-2">
+                    <i data-lucide="map" class="w-4 h-4"></i>
+                    <span>Peta Materi Fungi</span>
+                </h3>
+                <nav class="space-y-1.5 text-sm font-medium">
+                    <a href="#pengantar" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">👋 Welcome Friends</a>
+                    <a href="#ciri-ciri" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">🦠 Ciri Utama Fungi</a>
+                    <a href="#struktur-tubuh" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">🧬 Anatomi & Struktur</a>
+                    <a href="#cara-hidup" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">🍽️ Cara Memperoleh Nutrisi</a>
+                    <a href="#reproduksi" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">🔄 Sistem Reproduksi</a>
+                    <a href="#pembagian-hifa" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">🧪 Klasifikasi Hifa</a>
+                    <div class="pt-2 border-t border-brand-50 mt-2">
+                        <span class="block text-[10px] uppercase font-bold tracking-wider text-sage-500 mb-1.5 px-3">4 Divisi Fungi</span>
+                        <a href="#zygomycota" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">1. Zygomycota</a>
+                        <a href="#ascomycota" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">2. Ascomycota</a>
+                        <a href="#basidiomycota" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">3. Basidiomycota</a>
+                        <a href="#deuteromycota" class="sidebar-item block py-1.5 px-3 text-gray-500 hover:text-brand-500 hover:pl-4 transition-all border-l-2 border-transparent">4. Deuteromycota</a>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 space-y-16">
+                
+                <!-- Hero Section / Pengantar -->
+                <section id="pengantar" class="relative overflow-hidden bg-brand-stone text-white rounded-3xl shadow-xl p-8 sm:p-12">
+                    <div class="absolute inset-0 opacity-15">
+                        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                            <defs>
+                                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grid)" />
+                        </svg>
+                    </div>
+                    <div class="relative z-10 space-y-6 max-w-3xl">
+                        <span class="inline-flex items-center space-x-1 bg-brand-500/20 text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            🎒 Catatan Biologi Kelas X
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+                            Mengupas Tuntas <span class="text-brand-300 italic">Kingdom Fungi</span> secara Interaktif!
+                        </h1>
+                        <p class="text-brand-100 text-lg leading-relaxed">
+                            Halo teman-teman seperjuangan! Catatan ini dibuat khusus buat kita yang ingin menguasai materi dunia jamur (Fungi) tanpa pusing. Semua diagram rumit dari PPT kelas telah disederhanakan, lengkap dengan analogi seru biar cepat nempel di otak. Yuk, kita mulai petualangannya! 🚀
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-xl text-sm font-medium">
+                                <span class="text-xl">🧬</span>
+                                <span>6 Karakteristik Utama</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-xl text-sm font-medium">
+                                <span class="text-xl">🔍</span>
+                                <span>4 Klasifikasi Divisi</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-xl text-sm font-medium">
+                                <span class="text-xl">📊</span>
+                                <span>Siklus Hidup Visual</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Ciri-ciri Fungi -->
+                <section id="ciri-ciri" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="fingerprint" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Ciri Utama Fungi</h2>
+                            <p class="text-sm text-sage-500">Mengenal tanda lahir si organisme misterius yang bukan tumbuhan maupun hewan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Peer Explanation Alert -->
+                    <div class="bg-brand-50 border-l-4 border-brand-500 p-5 rounded-r-2xl">
+                        <p class="text-sm text-brand-900 leading-relaxed">
+                            💡 <strong>Catatan Penting:</strong> Banyak orang sering mengira jamur itu sejenis tanaman karena mereka tumbuh di tanah dan tidak bergerak. Padahal, jamur <strong>sama sekali tidak punya klorofil</strong> dan dinding selnya tersusun dari <strong>kitin</strong> (seperti cangkang kepiting), bukan selulosa seperti tanaman biasa!
+                        </p>
+                    </div>
+
+                    <!-- 6 Ciri-Ciri Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🧬</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Eukariotik</h4>
+                            <p class="text-sm text-gray-600">Sel jamur sudah memiliki membran inti sel yang sejati. Sangat maju dibanding bakteri!</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🛡️</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Dinding Sel Kitin</h4>
+                            <p class="text-sm text-gray-600">Terbuat dari bahan polisakarida kuat bernama zat kitin, mirip dengan eksoskeleton serangga.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🍂</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Tanpa Klorofil</h4>
+                            <p class="text-sm text-gray-600">Tidak bisa berfotosintesis. Makanya, jamur hidup dari bahan organik di sekitarnya.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🍽️</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Hidup Heterotrof</h4>
+                            <p class="text-sm text-gray-600">Memperoleh makanan dari lingkungan luar dengan cara menyerap zat organik terlarut.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🧫</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Multi & Uniseluler</h4>
+                            <p class="text-sm text-gray-600">Ada yang uniseluler (seperti ragi roti / khamir) dan sebagian besar multiseluler (jamur payung).</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-brand-50 to-transparent border border-brand-100/40">
+                            <span class="text-2xl mb-3 block">🔄</span>
+                            <h4 class="font-bold text-gray-900 mb-1">Dual Reproduksi</h4>
+                            <p class="text-sm text-gray-600">Bisa membelah diri/spora biasa (aseksual) maupun kawin lewat spora meiosis (seksual).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Struktur Tubuh Fungi -->
+                <section id="struktur-tubuh" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="database" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Anatomi & Struktur Tubuh Fungi</h2>
+                            <p class="text-sm text-sage-500">Mempelajari benang-benang ajaib penyusun tubuh jamur multiseluler.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Pure-SVG Diagram of Mushroom Anatomy -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 flex justify-center bg-brand-50 rounded-2xl p-6 border border-brand-100">
+                            <div class="w-full max-w-xs text-center space-y-4">
+                                <span class="text-xs uppercase font-bold tracking-widest text-brand-500">Diagram Anatomi Jamur Payung</span>
+                                <!-- Mushroom SVG Drawing -->
+                                <svg class="w-full h-64 mx-auto" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Pileus (Cap) -->
+                                    <path d="M30 110 C30 50, 170 50, 170 110 Q100 120, 30 110 Z" fill="#c12d57" stroke="#871d3a" stroke-width="3" />
+                                    <!-- Spots on cap -->
+                                    <circle cx="60" cy="80" r="12" fill="#f7ccd7" />
+                                    <circle cx="100" cy="70" r="8" fill="#f7ccd7" />
+                                    <circle cx="140" cy="85" r="10" fill="#f7ccd7" />
+                                    <!-- Gills under cap -->
+                                    <path d="M 33 111 Q 100 123, 167 111" stroke="#e5ebe7" stroke-width="4"/>
+                                    <!-- Gills lines -->
+                                    <line x1="50" y1="113" x2="50" y2="120" stroke="#f1a3b8" stroke-width="2" />
+                                    <line x1="80" y1="117" x2="80" y2="125" stroke="#f1a3b8" stroke-width="2" />
+                                    <line x1="120" y1="117" x2="120" y2="125" stroke="#f1a3b8" stroke-width="2" />
+                                    <line x1="150" y1="113" x2="150" y2="120" stroke="#f1a3b8" stroke-width="2" />
+                                    
+                                    <!-- Ring (Anulus) -->
+                                    <ellipse cx="100" cy="140" rx="20" ry="6" fill="#e77191" stroke="#c12d57" stroke-width="2"/>
+                                    
+                                    <!-- Stalk (Stipe) -->
+                                    <path d="M85 116 L85 210 Q100 215, 115 210 L115 116 Z" fill="#faf6f7" stroke="#e5ebe7" stroke-width="3"/>
+
+                                    <!-- Volva (base cup) -->
+                                    <path d="M 75 210 C 75 225, 125 225, 125 210 Z" fill="#7d9a86" opacity="0.8"/>
+
+                                    <!-- Mycelium threads (roots) -->
+                                    <path d="M85 210 Q60 220, 50 230 M100 215 Q100 230, 95 240 M115 210 Q140 225, 150 235 M90 212 Q75 225, 70 240 M110 212 Q125 225, 130 240" stroke="#7d9a86" stroke-width="2" stroke-linecap="round"/>
+                                    
+                                    <!-- Text overlays for presentation style -->
+                                    <text x="100" y="35" fill="#871d3a" font-family="Playfair Display" font-size="14" text-anchor="middle" font-weight="bold">Badan Buah</text>
+                                    <text x="100" y="240" fill="#3e4e43" font-family="Plus Jakarta Sans" font-size="11" text-anchor="middle" font-weight="bold">Miselium di bawah tanah</text>
+                                </svg>
+                                <p class="text-xs text-gray-500 italic">[Gambar Bagan Struktur Tubuh Fungi Makroskopis]</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-6">
+                            <h3 class="text-xl font-bold text-gray-900">Morfologi Fungi Multiseluler</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Secara mendasar, tubuh jamur terbentuk dari jalinan benang-benang mikroskopis halus yang dinamakan <strong>Hifa</strong>. Mari kita pahami bagian-bagiannya satu per satu:
+                            </p>
+                            
+                            <!-- Key Anatomical Definitions -->
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-brand-100 text-brand-600 text-xs font-bold">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-gray-900">Hifa (Benang Halus)</h5>
+                                        <p class="text-xs text-gray-600">Unit struktural dasar berupa filamen tipis bercabang. Hifa yang tumbuh mendatar di permukaan substrat dinamakan <strong>Stolon</strong>.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-brand-100 text-brand-600 text-xs font-bold">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-gray-900">Miselium (Kumpulan Jaring)</h5>
+                                        <p class="text-xs text-gray-600">Kumpulan jaring-jaring hifa yang saling bercabang dan menyebar luas. Fungsinya menyerap nutrisi dari makanan.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-brand-100 text-brand-600 text-xs font-bold">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-gray-900">Rizoid & Haustorium</h5>
+                                        <p class="text-xs text-gray-600">Hifa yang tumbuh ke bawah mirip akar penambat dinamakan <strong>Rizoid</strong>. Pada jamur parasit, hifanya bermutasi menjadi penembus inang khusus bernama <strong>Haustorium</strong> untuk merampas nutrisi.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-brand-100 text-brand-600 text-xs font-bold">4</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-gray-900">Badan Buah (Basidiokarp/Askokarp)</h5>
+                                        <p class="text-xs text-gray-600">Tubuh jamur makroskopis yang menonjol ke atas tanah yang kita kenal sebagai kepala jamur. Ada fungi yang membentuk badan buah ini dan ada yang tidak.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Cara Hidup Fungi -->
+                <section id="cara-hidup" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="cookie" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Cara Hidup Fungi (Nutrisi)</h2>
+                            <p class="text-sm text-sage-500">Bagaimana organisme tanpa klorofil mengisi perut dan mendapatkan energi?</p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Fungi tergolong dalam organisme <strong>Heterotrof</strong>, artinya ia tidak bisa memproduksi makanan sendiri dan sangat bergantung pada makhluk hidup lain. Cara makannya pun unik: <strong>pencernaan ekstraseluler</strong> (makanan dicerna di luar tubuh dulu menggunakan enzim barulah diserap!).
+                    </p>
+
+                    <!-- Three Nutrition Paths Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Saprofit -->
+                        <div class="p-6 rounded-2xl border border-brand-100 bg-brand-50/20 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg">1</div>
+                            <h4 class="font-bold text-lg text-brand-900">Saprofit (Pengurai)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                Hidup menumpang pada benda mati, sampah organik, atau jasad hewan/tumbuhan mati.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-brand-100 text-xs text-gray-500 italic space-y-1">
+                                <span class="font-bold text-brand-700 block">Sistem Kerja:</span>
+                                Keluar enzim hidrolase ➔ Hancurkan senyawa di luar tubuh ➔ Zat organik terlarut diserap kembali oleh hifa.
+                            </div>
+                        </div>
+
+                        <!-- Parasit -->
+                        <div class="p-6 rounded-2xl border border-brand-100 bg-brand-50/20 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg">2</div>
+                            <h4 class="font-bold text-lg text-brand-900">Parasit (Perampas)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                Mengambil sari makanan dari inang yang masih hidup. Terbagi jadi dua tipe:
+                            </p>
+                            <ul class="text-xs text-gray-600 space-y-1.5 list-disc pl-4">
+                                <li><strong>Parasit Obligat:</strong> Hanya bisa hidup jika inang masih hidup. Inang mati = dia ikut mati.</li>
+                                <li><strong>Parasit Fakultatif:</strong> Bisa jadi parasit, tapi kalau kondisi mendesak/inang tiada, bisa beralih hidup saprofit.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Simbiosis -->
+                        <div class="p-6 rounded-2xl border border-brand-100 bg-brand-50/20 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg">3</div>
+                            <h4 class="font-bold text-lg text-brand-900">Simbiosis Mutualisme</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                Saling bekerja sama, berbagi keuntungan demi bertahan hidup dengan organisme lain:
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-brand-100 text-xs space-y-2">
+                                <p><strong>Lichenes (Lumut Kerak):</strong> Kerja sama jamur dengan alga hijau-biru.</p>
+                                <p><strong>Mikoriza:</strong> Kerja sama hifa jamur dengan akar tumbuhan tinggi.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section: Reproduksi Fungi -->
+                <section id="reproduksi" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="refresh-cw" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Sistem Reproduksi Fungi</h2>
+                            <p class="text-sm text-sage-500">Mempelajari siklus kembang biak jamur secara aseksual maupun seksual.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dual Reproduksi Column -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Aseksual -->
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-2 text-brand-600">
+                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                                <h3 class="font-bold text-lg text-gray-900">1. Reproduksi Aseksual (Vegetatif)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                Cara kembang biak mandiri tanpa peleburan sel. Sangat umum dilakukan oleh koloni jamur saat keadaan lingkungan stabil.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-2xl space-y-3 text-xs">
+                                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                    <span class="font-bold text-gray-700">Tunas / Budding:</span>
+                                    <span class="bg-brand-100 text-brand-700 px-2 py-0.5 rounded font-mono">Uniseluler</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                    <span class="font-bold text-gray-700">Fragmentasi (Hifa terputus):</span>
+                                    <span class="bg-brand-100 text-brand-700 px-2 py-0.5 rounded font-mono">Multiseluler</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-700 block mb-1">Pembentukan Spora Aseksual (Mitosis):</span>
+                                    <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                                        <li><strong>Konidiospora:</strong> Spora di ujung hifa kecil.</li>
+                                        <li><strong>Klamidospora:</strong> Spora berdinding super tebal (tahan cuaca ekstrem).</li>
+                                        <li><strong>Sporangiospora:</strong> Spora dalam kantung sporangium di ujung tiang sporangiofor.</li>
+                                        <li><strong>Arthrospora:</strong> Terbentuk dari pemutusan langsung sel-sel hifa.</li>
+                                        <li><strong>Blastospora:</strong> Tunas kuncup dari sel uniseluler.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seksual -->
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-2 text-brand-600">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                                <h3 class="font-bold text-lg text-gray-900">2. Reproduksi Seksual (Generatif)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                Dilakukan melalui pembentukan spora generatif lewat pembelahan <strong>Meiosis</strong>. Biasanya dipicu oleh kondisi lingkungan buruk atau stres nutrisi.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-2xl space-y-3 text-xs">
+                                <span class="font-bold text-gray-700 block mb-2">Tipe Spora Seksual Berdasarkan Divisi:</span>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="bg-white p-3 rounded-xl border border-brand-100 text-center">
+                                        <span class="font-bold text-brand-600 block">Zygospora</span>
+                                        <span class="text-[10px] text-gray-500">Zygomycota</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-xl border border-brand-100 text-center">
+                                        <span class="font-bold text-brand-600 block">Ascospora</span>
+                                        <span class="text-[10px] text-gray-500">Ascomycota</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-xl border border-brand-100 text-center">
+                                        <span class="font-bold text-brand-600 block">Basidiospora</span>
+                                        <span class="text-[10px] text-gray-500">Basidiomycota</span>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50 p-3 rounded-xl text-brand-900 border border-brand-100 text-[11px]">
+                                    👉 <strong>Note Penting:</strong> Divisi <em>Deuteromycota</em> tidak memiliki catatan spora seksual, makanya dijuluki "Fungi Imperfecti" (Jamur Tidak Sempurna).
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section: Pembagian Berdasarkan Jenis Hifa -->
+                <section id="pembagian-hifa" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="sliders" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Klasifikasi Berdasarkan Jenis Hifa</h2>
+                            <p class="text-sm text-sage-500">Kunci penting dalam membedakan golongan jamur berderajat rendah vs tinggi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Custom Interactive Comparative Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-brand-100 text-brand-900">
+                                    <th class="py-3 px-4 font-bold text-sm">Tipe Hifa</th>
+                                    <th class="py-3 px-4 font-bold text-sm">Karakteristik & Inti Sel</th>
+                                    <th class="py-3 px-4 font-bold text-sm">Contoh Divisi Fungi</th>
+                                    <th class="py-3 px-4 font-bold text-sm text-center">Diagram Simpel</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-brand-50 text-sm">
+                                <tr>
+                                    <td class="py-4 px-4 font-bold text-gray-900">Hifa Bersekat (Septa)</td>
+                                    <td class="py-4 px-4 text-gray-600">
+                                        Hifa yang memiliki dinding pembatas (septa). Dibagi jadi 2:
+                                        <ul class="list-disc pl-4 text-xs mt-1 space-y-0.5">
+                                            <li><strong>Monositik (Satu inti):</strong> Basidiomycota, Deuteromycota.</li>
+                                            <li><strong>Multinukleus (Banyak inti):</strong> Ascomycota.</li>
+                                        </ul>
+                                    </td>
+                                    <td class="py-4 px-4 font-mono text-xs text-brand-600">Ascomycota, Basidiomycota, Deuteromycota</td>
+                                    <td class="py-4 px-4 flex justify-center">
+                                        <!-- Simple SVG Hifa Bersekat -->
+                                        <svg class="w-24 h-8" viewBox="0 0 120 40">
+                                            <rect x="5" y="10" width="110" height="20" rx="4" fill="none" stroke="#d7456f" stroke-width="2"/>
+                                            <line x1="40" y1="10" x2="40" y2="30" stroke="#d7456f" stroke-width="2"/>
+                                            <line x1="80" y1="10" x2="80" y2="30" stroke="#d7456f" stroke-width="2"/>
+                                            <circle cx="22" cy="20" r="3" fill="#871d3a"/>
+                                            <circle cx="60" cy="20" r="3" fill="#871d3a"/>
+                                            <circle cx="100" cy="20" r="3" fill="#871d3a"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 font-bold text-gray-900">Hifa Tidak Bersekat (Asepta/Soenositik)</td>
+                                    <td class="py-4 px-4 text-gray-600">
+                                        Filamen panjang mirip selang kosong tanpa dinding penyekat, memiliki banyak inti sel mengambang bebas di sitoplasma.
+                                    </td>
+                                    <td class="py-4 px-4 font-mono text-xs text-brand-600">Zygomycota</td>
+                                    <td class="py-4 px-4 flex justify-center">
+                                        <!-- Simple SVG Hifa Tidak Bersekat -->
+                                        <svg class="w-24 h-8" viewBox="0 0 120 40">
+                                            <rect x="5" y="10" width="110" height="20" rx="4" fill="none" stroke="#7d9a86" stroke-width="2"/>
+                                            <circle cx="25" cy="18" r="3" fill="#3e4e43"/>
+                                            <circle cx="45" cy="22" r="3" fill="#3e4e43"/>
+                                            <circle cx="75" cy="17" r="3" fill="#3e4e43"/>
+                                            <circle cx="95" cy="22" r="3" fill="#3e4e43"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section: THE 4 DIVISIONS OF FUNGI (Pilar Terbesar) -->
+                <div class="space-y-4">
+                    <h2 class="text-3xl font-serif font-bold text-brand-900">Empat Pilar Klasifikasi Fungi</h2>
+                    <p class="text-gray-600">Mari kita selidiki detail masing-masing divisi, dari siklus hidup hingga contoh spesiesnya yang sering keluar di soal ujian!</p>
+                </div>
+
+                <!-- Divisi 1: Zygomycota -->
+                <section id="zygomycota" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-50/50 rounded-bl-full flex items-center justify-center font-bold text-brand-300 text-3xl">01</div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <span class="text-2xl font-bold font-mono">Zy</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-serif text-brand-900">Zygomycota</h3>
+                            <span class="text-xs font-semibold bg-brand-100 text-brand-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Hifa Soenositik (Tidak Bersekat)</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Golongan jamur darat berderajat rendah. Karakteristik utamanya adalah hifa yang bertipe <strong>soenositik</strong> (tidak bersekat). Memiliki tiga tipe bentuk hifa terspesialisasi:
+                            </p>
+                            <ul class="text-xs text-gray-600 space-y-2 list-disc pl-4">
+                                <li><strong>Stolon:</strong> Hifa memanjang horizontal di permukaan media pertumbuhan/substrat.</li>
+                                <li><strong>Rizoid:</strong> Hifa menembus ke dalam substrat untuk memperkokoh pijakan dan menyerap sari-sari makanan.</li>
+                                <li><strong>Sporangiofor:</strong> Hifa tegak menjulang ke atas dengan bola penghasil spora (sporangium) di pucuknya.</li>
+                            </ul>
+                            <div class="bg-[#faf6f7] p-4 rounded-2xl border border-brand-100">
+                                <span class="font-bold text-xs text-brand-800 block mb-1">Contoh Spesies Populer:</span>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs">
+                                        <span class="font-bold italic block">Rhizopus oryzae</span>
+                                        <span class="text-[10px] text-gray-500">Jamur Tempe</span>
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs">
+                                        <span class="font-bold italic block">Mucor mucedo</span>
+                                        <span class="text-[10px] text-gray-500">Jamur Kotoran Ternak</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lifecycle Interactive Display -->
+                        <div class="bg-brand-50 rounded-2xl p-6 border border-brand-100 space-y-4">
+                            <h4 class="font-bold text-sm text-brand-900 flex items-center space-x-2">
+                                <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
+                                <span>Alur Siklus Hidup Zygomycota</span>
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 bg-white p-2.5 rounded-xl border border-brand-100 text-xs">
+                                    <span class="w-5 h-5 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                                    <span>Hifa (+) dan Hifa (-) berdekatan membentuk cabang gametangia.</span>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-white p-2.5 rounded-xl border border-brand-100 text-xs">
+                                    <span class="w-5 h-5 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                                    <span><strong>Plasmogamy:</strong> Peleburan sitoplasma membentuk Zygosporangium dikariotik.</span>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-white p-2.5 rounded-xl border border-brand-100 text-xs">
+                                    <span class="w-5 h-5 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                                    <span><strong>Karyogamy:</strong> Peleburan inti sel menghasilkan zigospora diploid (2n).</span>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-white p-2.5 rounded-xl border border-brand-100 text-xs">
+                                    <span class="w-5 h-5 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold">4</span>
+                                    <span>Mengalami <strong>Meiosis</strong> saat berkecambah untuk menghasilkan spora haploid (n).</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Divisi 2: Ascomycota -->
+                <section id="ascomycota" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-50/50 rounded-bl-full flex items-center justify-center font-bold text-brand-300 text-3xl">02</div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <span class="text-2xl font-bold font-mono">As</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-serif text-brand-900">Ascomycota</h3>
+                            <span class="text-xs font-semibold bg-brand-100 text-brand-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Hifa Bersekat, Spora dalam Askus</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Divisi jamur kantung. Spora seksualnya diproduksi di dalam kantung tertutup bernama <strong>Askus</strong>. Bentuk tempat penampung askus (disebut <strong>Askokarp</strong>) sangat bervariasi:
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 rounded-xl border border-gray-100 bg-gray-50">
+                                    <h5 class="font-bold text-gray-900 mb-1">Tanpa Askokarp</h5>
+                                    <p class="text-[11px] text-gray-500">Biasanya berupa jamur uniseluler ragi.</p>
+                                </div>
+                                <div class="p-3 rounded-xl border border-gray-100 bg-gray-50">
+                                    <h5 class="font-bold text-gray-900 mb-1">Kleistotesium</h5>
+                                    <p class="text-[11px] text-gray-500">Askokarp tertutup rapat berbentuk bola bulat.</p>
+                                </div>
+                                <div class="p-3 rounded-xl border border-gray-100 bg-gray-50">
+                                    <h5 class="font-bold text-gray-900 mb-1">Peritesium</h5>
+                                    <p class="text-[11px] text-gray-500">Askokarp berbentuk botol berleher dengan lubang udara.</p>
+                                </div>
+                                <div class="p-3 rounded-xl border border-gray-100 bg-gray-50">
+                                    <h5 class="font-bold text-gray-900 mb-1">Apotesium</h5>
+                                    <p class="text-[11px] text-gray-500">Askokarp terbuka berbentuk mangkuk atau cawan.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Species & Life Cycle Details -->
+                        <div class="space-y-4 bg-brand-50/30 p-6 rounded-2xl border border-brand-100">
+                            <h4 class="font-bold text-brand-900">Spesifikasi Reproduksi Ascomycota</h4>
+                            <div class="space-y-3 text-xs text-gray-600">
+                                <p><strong>Aseksual:</strong> Multiseluler menggunakan fragmentasi hifa & konidia; Uniseluler lewat pembentukan tunas baru (blastophora).</p>
+                                <p><strong>Seksual:</strong> Askogonium (+) bertemu Anteridium (-) ➔ Plasmogami membentuk hifa dikariotik ➔ Karyogami membentuk zigot diploid ➔ Meiosis & Mitosis membentuk 8 ascospora haploid di dalam askus.</p>
+                            </div>
+                            <div class="pt-2 border-t border-brand-100">
+                                <span class="font-bold text-xs text-brand-800 block mb-1">Contoh Spesies:</span>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs">
+                                        <span class="font-bold italic block">Saccharomyces cerevisiae</span>
+                                        <span class="text-[10px] text-gray-500">Ragi Pengembang Roti & Tape</span>
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs">
+                                        <span class="font-bold italic block">Penicillium chrysogenum</span>
+                                        <span class="text-[10px] text-gray-500">Pembuat Obat Antibiotik</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Divisi 3: Basidiomycota -->
+                <section id="basidiomycota" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-50/50 rounded-bl-full flex items-center justify-center font-bold text-brand-300 text-3xl">03</div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <span class="text-2xl font-bold font-mono">Ba</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-serif text-brand-900">Basidiomycota</h3>
+                            <span class="text-xs font-semibold bg-brand-100 text-brand-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Jamur Makroskopik Berbadan Buah Gada</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Jamur berukuran besar yang biasa kita makan di sup! Hifanya bersekat dengan tubuh buah makroskopis berukuran besar bernama <strong>Basidiokarp</strong>.
+                            </p>
+                            
+                            <!-- Detailed Anatomy Grid from PPT slide 35 -->
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 space-y-3">
+                                <span class="font-bold text-xs text-gray-900 block">Kamus Anatomi Tubuh Buah Basidiokarp:</span>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Pileus</strong> Tudung Jamur
+                                    </div>
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Gill/Lamela</strong> Lembaran di bawah tudung
+                                    </div>
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Anulus</strong> Cincin pelindung
+                                    </div>
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Stipe</strong> Batang penopang
+                                    </div>
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Volva</strong> Cawan sisa selubung
+                                    </div>
+                                    <div class="bg-white p-2 rounded-lg text-center border border-gray-100">
+                                        <strong class="text-brand-600 block">Basidium</strong> Alat pembuat spora
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cycle and Examples -->
+                        <div class="space-y-4">
+                            <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 space-y-3 text-xs">
+                                <h5 class="font-bold text-brand-900">Alur Perkembangbiakan Seksual:</h5>
+                                <p class="text-gray-600">
+                                    Spora haploid berkecambah membentuk hifa (+) dan hifa (-) monokariotik ➔ Plasmogami terjadi membentuk hifa dikariotik ➔ Tumbuh subur membentuk tubuh buah Basidiokarp ➔ Karyogami di ujung sel basidium membentuk zigot diploid ➔ Meiosis menghasilkan 4 <strong>Basidiospora</strong> haploid di atas basidium siap ditiup angin.
+                                </p>
+                            </div>
+                            <div class="bg-[#faf6f7] p-4 rounded-2xl border border-brand-100">
+                                <span class="font-bold text-xs text-brand-800 block mb-2">Contoh Spesies:</span>
+                                <div class="grid grid-cols-3 gap-2 text-[10px]">
+                                    <div class="bg-white p-2 rounded-xl text-center shadow-xs border border-brand-50">
+                                        <span class="font-bold italic block">Volvariella volvacea</span>
+                                        <span class="text-gray-500">Jamur Merang</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded-xl text-center shadow-xs border border-brand-50">
+                                        <span class="font-bold italic block">Auricularia polytricha</span>
+                                        <span class="text-gray-500">Jamur Kuping</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded-xl text-center shadow-xs border border-brand-50">
+                                        <span class="font-bold italic block">Pleurotus ostreatus</span>
+                                        <span class="text-gray-500">Jamur Tiram</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Divisi 4: Deuteromycota -->
+                <section id="deuteromycota" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-50/50 rounded-bl-full flex items-center justify-center font-bold text-brand-300 text-3xl">04</div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <span class="text-2xl font-bold font-mono">De</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-serif text-brand-900">Deuteromycota</h3>
+                            <span class="text-xs font-semibold bg-brand-100 text-brand-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Fungi Imperfecti (Belum Sempurna)</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Kelompok jamur "keranjang sampah" sementara untuk jamur-jamur yang <strong>belum diketahui cara reproduksi seksualnya</strong> secara ilmiah. Berukuran mikroskopis dan hifanya bersekat.
+                            </p>
+                            <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-2xl text-xs text-brand-900">
+                                💡 <strong>Fun Fact:</strong> Jika suatu hari ilmuwan menemukan fase seksual dari anggota Deuteromycota, jamur tersebut akan dikeluarkan dari kelompok ini dan dipindahkan ke divisi Ascomycota atau Basidiomycota yang sesuai!
+                            </div>
+                        </div>
+
+                        <!-- Specs and Diseases -->
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-4 text-xs">
+                            <div class="space-y-2">
+                                <span class="font-bold text-gray-900 block">Karakteristik Reproduksi Aseksual:</span>
+                                <p class="text-gray-600">
+                                    Memperbanyak diri menggunakan konidiospora, blastospora (tunas), atau arthospora (potongan hifa).
+                                </p>
+                            </div>
+                            <div class="pt-2 border-t border-gray-200">
+                                <span class="font-bold text-gray-900 block mb-1">Contoh Spesies & Dampaknya (Parasit Kulit):</span>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs border border-gray-100">
+                                        <span class="font-bold italic block">Tinea versicolor</span>
+                                        <span class="text-[10px] text-red-500 font-semibold">Penyebab Penyakit Panu</span>
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-xl text-center shadow-xs border border-gray-100">
+                                        <span class="font-bold italic block">Epidermophyton floccosum</span>
+                                        <span class="text-[10px] text-red-500 font-semibold">Penyakit Kutu Air</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Flashcards Study Mode (Toggled via JS) -->
+                <section id="flashcard-section" class="hidden bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                                <i data-lucide="book-marked" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold font-serif text-brand-900">Flashcard Pintar Fungi</h2>
+                                <p class="text-sm text-sage-500">Klik kartu untuk membalik dan melihat jawaban penjelasan cepat!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flashcard Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Card 1 -->
+                        <div onclick="flipCard(this)" class="group h-48 [perspective:1000px] cursor-pointer">
+                            <div class="relative h-full w-full rounded-2xl border border-brand-100 bg-[#faf6f7] shadow-xs transition-all duration-500 [transform-style:preserve-3d] group-[.is-flipped]:[transform:rotateY(180deg)]">
+                                <!-- Front -->
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between [backface-visibility:hidden]">
+                                    <span class="text-xs uppercase font-bold text-brand-500 tracking-wider">Konsep Dasar 1</span>
+                                    <p class="font-bold text-base text-gray-900">Apa perbedaan utama jamur dan tumbuhan sejati?</p>
+                                    <span class="text-xs text-gray-400">Klik untuk balik ➔</span>
+                                </div>
+                                <!-- Back -->
+                                <div class="absolute inset-0 h-full w-full rounded-2xl bg-brand-800 p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
+                                    <p class="text-sm leading-relaxed">
+                                        Jamur tidak memiliki klorofil (tidak bisa berfotosintesis) dan dinding selnya tersusun dari kitin, bukan selulosa.
+                                    </p>
+                                    <span class="text-xs text-brand-300">Penjelasan Singkat</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div onclick="flipCard(this)" class="group h-48 [perspective:1000px] cursor-pointer">
+                            <div class="relative h-full w-full rounded-2xl border border-brand-100 bg-[#faf6f7] shadow-xs transition-all duration-500 [transform-style:preserve-3d] group-[.is-flipped]:[transform:rotateY(180deg)]">
+                                <!-- Front -->
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between [backface-visibility:hidden]">
+                                    <span class="text-xs uppercase font-bold text-brand-500 tracking-wider">Mekanisme Kerja 2</span>
+                                    <p class="font-bold text-base text-gray-900">Bagaimana hifa haustorium bekerja?</p>
+                                    <span class="text-xs text-gray-400">Klik untuk balik ➔</span>
+                                </div>
+                                <!-- Back -->
+                                <div class="absolute inset-0 h-full w-full rounded-2xl bg-brand-800 p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
+                                    <p class="text-sm leading-relaxed">
+                                        Hifa haustorium bermutasi khusus untuk menembus sel inang hidup demi menyedot nutrisi secara langsung pada parasit obligat.
+                                    </p>
+                                    <span class="text-xs text-brand-300">Sistem Parasitisme</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div onclick="flipCard(this)" class="group h-48 [perspective:1000px] cursor-pointer">
+                            <div class="relative h-full w-full rounded-2xl border border-brand-100 bg-[#faf6f7] shadow-xs transition-all duration-500 [transform-style:preserve-3d] group-[.is-flipped]:[transform:rotateY(180deg)]">
+                                <!-- Front -->
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between [backface-visibility:hidden]">
+                                    <span class="text-xs uppercase font-bold text-brand-500 tracking-wider">Klasifikasi 3</span>
+                                    <p class="font-bold text-base text-gray-900">Kenapa Deuteromycota dijuluki Imperfecti?</p>
+                                    <span class="text-xs text-gray-400">Klik untuk balik ➔</span>
+                                </div>
+                                <!-- Back -->
+                                <div class="absolute inset-0 h-full w-full rounded-2xl bg-brand-800 p-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
+                                    <p class="text-sm leading-relaxed">
+                                        Karena sampai saat ini metode atau fase reproduksi seksual jamur tersebut belum ditemukan secara ilmiah.
+                                    </p>
+                                    <span class="text-xs text-brand-300">Sejarah Klasifikasi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section: Kuis Interaktif (Pemahaman Mandiri) -->
+                <section id="kuis-interaktif" class="bg-white rounded-3xl border border-brand-100 p-8 shadow-sm space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-2xl">
+                            <i data-lucide="award" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold font-serif text-brand-900">Uji Kejeniusanmu 🧠</h2>
+                            <p class="text-sm text-sage-500">Ayo uji pemahamanmu dengan kuis interaktif buatan siswa pintar ini!</p>
+                        </div>
+                    </div>
+
+                    <!-- Question Container -->
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-4">
+                            <div class="flex justify-between items-center text-xs font-bold text-brand-600">
+                                <span>SOAL 1 DARI 3</span>
+                                <span>BIOLOGI - KINGDOM FUNGI</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-gray-900">Ragi pembuat tape ketan (Saccharomyces cerevisiae) tergolong ke dalam divisi...</h4>
+                            
+                            <!-- Options -->
+                            <div class="space-y-2.5">
+                                <button onclick="checkAnswer(this, false, 'Saccharomyces ragi bukan bagian dari Zygomycota.')" class="w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-brand-50/20 text-sm font-medium transition-all flex justify-between items-center">
+                                    <span>A. Zygomycota</span>
+                                </button>
+                                <button onclick="checkAnswer(this, true, 'Betul sekali! Saccharomyces bereproduksi seksual dengan askospora di dalam kantung askus.')" class="w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-brand-50/20 text-sm font-medium transition-all flex justify-between items-center">
+                                    <span>B. Ascomycota</span>
+                                </button>
+                                <button onclick="checkAnswer(this, false, 'Basidiomycota rata-rata merupakan jamur makroskopis besar.')" class="w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-brand-50/20 text-sm font-medium transition-all flex justify-between items-center">
+                                    <span>C. Basidiomycota</span>
+                                </button>
+                                <button onclick="checkAnswer(this, false, 'Salah. Ragi Saccharomyces fase reproduksinya sudah sangat jelas diketahui.')" class="w-full text-left p-3.5 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-brand-50/20 text-sm font-medium transition-all flex justify-between items-center">
+                                    <span>D. Deuteromycota</span>
+                                </button>
+                            </div>
+
+                            <!-- Feedback Area -->
+                            <div id="quiz-feedback" class="hidden p-4 rounded-xl text-sm font-semibold"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Penutup & Link Latihan -->
+                <section class="bg-gradient-to-br from-brand-stone to-brand-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl space-y-6">
+                    <div class="max-w-2xl space-y-4">
+                        <h2 class="text-3xl font-serif font-bold">"Semua impian kita bisa terwujud jika kita punya keberanian untuk mengejarnya."</h2>
+                        <p class="text-xs uppercase tracking-widest text-brand-300 font-bold">— Walt Disney (Dikutip dari PPT Kelas)</p>
+                        <p class="text-brand-100 text-sm leading-relaxed">
+                            Nah, itu tadi rangkuman lengkap, seru, dan padat tentang materi Fungi. Kita sudah pelajari struktur hifa, pengelompokan nutrisi, sampai 4 divisi utama. Jangan lupa untuk berkunjung ke bank soal digital di link berikut untuk latihan harian!
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://kejarcita.id/contoh-soal/biologi-kelas-10/topik/1133" target="_blank" rel="noopener" class="inline-flex items-center space-x-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3 rounded-full transition-all shadow-lg shadow-brand-500/30">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                                <span>Kunjungi Bank Soal Biologi 📝</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-brand-100 mt-20 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-500 space-y-2">
+            <p class="font-bold text-brand-800">Fungi-Pedia © 2026</p>
+            <p>Dibuat dengan cinta untuk teman-teman pembelajar biologi Indonesia.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Toggle Study mode (Flashcard area hide/show)
+        function toggleStudyMode() {
+            const section = document.getElementById('flashcard-section');
+            const btn = document.getElementById('studyModeBtn');
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                section.scrollIntoView({ behavior: 'smooth' });
+                btn.innerHTML = `<i data-lucide="eye-off" class="w-4 h-4"></i><span>Tutup Flashcard</span>`;
+            } else {
+                section.classList.add('hidden');
+                btn.innerHTML = `<i data-lucide="book-open" class="w-4 h-4"></i><span>Mode Flashcard</span>`;
+            }
+            lucide.createIcons();
+        }
+
+        // Card flipper logic
+        function flipCard(element) {
+            element.classList.toggle('is-flipped');
+        }
+
+        // Quiz feedback logic
+        function checkAnswer(button, isCorrect, explanation) {
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            
+            // Highlight all options and reset
+            const buttons = button.parentNode.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-green-100', 'border-green-400', 'bg-red-100', 'border-red-400');
+            });
+
+            if (isCorrect) {
+                button.classList.add('bg-green-100', 'border-green-400');
+                feedback.classList.add('bg-green-100', 'text-green-800');
+                feedback.innerHTML = `🎉 <strong>Jawaban Benar!</strong> ${explanation}`;
+            } else {
+                button.classList.add('bg-red-100', 'border-red-400');
+                feedback.classList.add('bg-red-100', 'text-red-800');
+                feedback.innerHTML = `❌ <strong>Coba Lagi:</strong> ${explanation}`;
+            }
+        }
+
+        // Active state navigation scrolling helper
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.sidebar-item');
+            
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('sidebar-active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('sidebar-active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

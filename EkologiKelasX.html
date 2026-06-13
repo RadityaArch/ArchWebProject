@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biologi Kelas X - Bab 4: Komponen Ekosistem & Interaksinya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Konfigurasi & CDN MathJax untuk Rendering LaTeX yang Sempurna -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- TOP HEADER / HERO BANNER -->
+    <header class="relative bg-gradient-to-r from-emerald-800 to-teal-700 text-white overflow-hidden py-16 px-6 shadow-md">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-emerald-600 rounded-full blur-3xl opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-wrap items-center justify-between gap-6">
+                <div class="space-y-4 max-w-2xl">
+                    <span class="bg-emerald-500/30 text-emerald-200 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-emerald-400/30">
+                        Kurikulum Merdeka • Kelas X SMA/MA
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                        Bab 4: Komponen Ekosistem dan Interaksinya 🌿⚡
+                    </h1>
+                    <p class="text-emerald-100 text-lg font-light leading-relaxed">
+                        Hai teman-teman! Ini catatan belajar digital interaktif buatan kita sendiri. Kita akan menjelajahi bagaimana seluruh makhluk hidup dan lingkungannya saling berbisik, berinteraksi, dan menjaga keharmonisan bumi. Yuk, belajar seru!
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl max-w-sm">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <span>🚀</span> Quick Stats Catatan
+                    </h3>
+                    <ul class="text-sm space-y-2 text-emerald-50">
+                        <li class="flex justify-between"><span>Sub-bab Utama:</span> <span class="font-semibold">6 Modul</span></li>
+                        <li class="flex justify-between"><span>Tipe Interaksi:</span> <span class="font-semibold">8 Pola</span></li>
+                        <li class="flex justify-between"><span>Daur Kimia:</span> <span class="font-semibold">5 Siklus</span></li>
+                        <li class="flex justify-between"><span>Level Pemahaman:</span> <span class="font-semibold bg-amber-400 text-slate-900 px-2 rounded">Siswa Super</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-8 flex-1 flex flex-col lg:flex-row gap-8 w-full">
+        
+        <!-- STICKY SIDEBAR (DAFTAR ISI) -->
+        <aside class="lg:w-72 flex-shrink-0 lg:sticky lg:top-6 h-fit space-y-6">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Daftar Isi Belajar</h3>
+                <nav class="space-y-1">
+                    <a href="#pendahuluan" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">📖</span> Pendahuluan
+                    </a>
+                    <a href="#subbab-a" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">A</span> Komponen Ekosistem
+                    </a>
+                    <a href="#subbab-b" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">B</span> Interaksi Antarkomponen
+                    </a>
+                    <a href="#subbab-c" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">C</span> Aliran Energi
+                    </a>
+                    <a href="#subbab-d" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">D</span> Piramida Ekologi
+                    </a>
+                    <a href="#subbab-e" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">E</span> Produktivitas
+                    </a>
+                    <a href="#subbab-f" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                        <span class="text-emerald-600">F</span> Daur Biogeokimia
+                    </a>
+                    <a href="#glosarium" class="flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-slate-100 transition-colors border-t border-slate-100 mt-2 pt-2">
+                        <span class="text-teal-600">📚</span> Glosarium Pintar
+                    </a>
+                </nav>
+            </div>
+
+            <!-- CARD PROFIL / TEMAN BELAJAR -->
+            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 border border-emerald-200/50 shadow-sm text-center">
+                <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                    💡
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm">Teman Belajar Pintarmu</h4>
+                <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    "Gunakan fitur pencarian browser (Ctrl+F) untuk mencari istilah biologis dengan instan!"
+                </p>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 space-y-12 max-w-full overflow-hidden">
+
+            <!-- PENDAHULUAN -->
+            <section id="pendahuluan" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl">📖</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Pendahuluan</h2>
+                        <p class="text-xs text-slate-500">Mengenal esensi keseimbangan alam</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <p class="text-slate-600 leading-relaxed">
+                            Pernahkah kamu memperhatikan bagaimana sawah yang hijau terlihat begitu damai? Di sana, tanaman padi, air, cacing tanah, udara segar, hingga sinar matahari bekerja sama tanpa henti.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Itulah yang kita sebut dengan <strong class="text-emerald-700">Ekosistem</strong>! Sebuah sistem dinamis di mana terjadi hubungan timbal balik (interaksi) saling ketergantungan antara komponen hidup (biotik) dan komponen tak hidup (abiotik). Hubungan ini terorganisir sangat rapi sehingga melahirkan suatu keseimbangan lingkungan yang seimbang dan stabil.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Ekosistem Terasering Sawah yang Hijau dan Dinamis" class="rounded-xl object-cover w-full h-48 md:h-56 shadow-sm border border-slate-100">
+                        <p class="text-xs text-slate-400 italic text-center">Ekosistem sawah: Interaksi nyata yang seimbang secara dinamis.</p>
+                    </div>
+                </div>
+
+                <!-- ALERT BOX: PERTANYAAN DISKUSI -->
+                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
+                    <h4 class="font-bold text-emerald-800 text-sm flex items-center gap-2 mb-1">
+                        <span>🤔</span> Tantangan Berpikir Kritis Teman Belajar
+                    </h4>
+                    <p class="text-emerald-700 text-xs leading-relaxed">
+                        Coba perhatikan ekosistem di sekitarmu (misal: halaman sekolah atau kolam ikan). 
+                        Jika salah satu komponen seperti air atau tumbuhan tiba-tiba hilang, apa yang akan terjadi pada kelangsungan hidup komponen lainnya? Diskusikan dengan guru dan teman sebangkumu!
+                    </p>
+                </div>
+            </section>
+
+            <!-- SUBBAB A: KOMPONEN EKOSISTEM -->
+            <section id="subbab-a" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">A</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Komponen Ekosistem</h2>
+                        <p class="text-xs text-slate-500">Pilar penyusun seluruh ekosistem di Bumi</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Setiap ekosistem, baik di daratan (terestrial) maupun perairan (akuatik), tersusun atas dua kelompok komponen dasar yang saling membutuhkan:
+                </p>
+
+                <!-- GRID DUA KOMPONEN -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- KOMPONEN ABIOTIK -->
+                    <div class="bg-amber-50/50 rounded-2xl p-6 border border-amber-100 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-xl">🪨</span>
+                            <h3 class="font-bold text-amber-900 text-lg">1. Komponen Abiotik</h3>
+                        </div>
+                        <p class="text-sm text-amber-800/95 leading-relaxed">
+                            Komponen fisik dan kimiawi yang berfungsi sebagai medium atau substrat tempat berlangsungnya suatu kehidupan. Gampangnya, ini adalah benda mati yang menghidupkan ekosistem!
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+                            <div class="bg-white p-2.5 rounded-lg border border-amber-200/60 shadow-sm">
+                                <span class="font-semibold block text-amber-900">☀️ Sinar Matahari</span>
+                                Sumber energi utama fotosintesis.
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-amber-200/60 shadow-sm">
+                                <span class="font-semibold block text-amber-900">💧 Air</span>
+                                Pengatur metabolisme & cairan tubuh.
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-amber-200/60 shadow-sm">
+                                <span class="font-semibold block text-amber-900">💨 Udara</span>
+                                Gas atmosfer pelindung bumi seperti Oksigen ($O_2$) dan Karbon Dioksida ($CO_2$).
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-amber-200/60 shadow-sm">
+                                <span class="font-semibold block text-amber-900">🌡️ Suhu</span>
+                                Faktor pembatas keberagaman hayati.
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-amber-200/60 shadow-sm col-span-2">
+                                <span class="font-semibold block text-amber-900">⛰️ Topografi, Tanah, Kelembapan & pH</span>
+                                Struktur relief bumi, keasaman tanah, dan kelembapan udara yang memengaruhi persebaran tumbuhan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KOMPONEN BIOTIK -->
+                    <div class="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-xl">🐛</span>
+                            <h3 class="font-bold text-emerald-900 text-lg">2. Komponen Biotik</h3>
+                        </div>
+                        <p class="text-sm text-emerald-800/95 leading-relaxed">
+                            Meliputi seluruh organisme hidup di bumi mulai dari mikroorganisme super kecil (bakteri, jamur) hingga vertebrata besar, termasuk manusia.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- AUTOTROF -->
+                            <div class="bg-white p-3 rounded-xl border border-emerald-200/60 shadow-sm">
+                                <span class="font-bold text-emerald-900 text-sm block mb-1">🟢 Komponen Autotrof (Produsen)</span>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Organisme yang punya klorofil untuk fotosintesis (menghasilkan makanan sendiri). Contoh: Tumbuhan lumut, paku, fitoplankton, ganggang.
+                                </p>
+                            </div>
+                            <!-- HETEROTROF -->
+                            <div class="bg-white p-3 rounded-xl border border-emerald-200/60 shadow-sm">
+                                <span class="font-bold text-emerald-900 text-sm block mb-1">🔴 Komponen Heterotrof (Konsumen)</span>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Tidak bisa buat makanan sendiri, sehingga memakan materi organik organisme lain. Terbagi menjadi Konsumen I (herbivor), II (karnivor kecil), III (karnivor besar).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPESIAL HIGHLIGHT: DEKOMPOSER VS DETRITIVOR -->
+                <div class="bg-slate-100 rounded-2xl p-6 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-sm">
+                        <span>🕵️‍♂️</span> Konsep Penting: Apa beda Dekomposer vs Detritivor?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                            <span class="font-bold text-teal-800 block text-sm">🍄 Dekomposer (Pengurai)</span>
+                            <p class="text-slate-600 leading-relaxed">
+                                Mikroorganisme yang merombak zat organik kompleks sisa makhluk hidup menjadi zat anorganik yang lebih sederhana secara kimiawi.
+                            </p>
+                            <span class="text-slate-500 font-semibold italic block">Contoh: Jamur, Bakteri tanah</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                            <span class="font-bold text-teal-800 block text-sm">🪱 Detritivor (Pemakan Serpihan)</span>
+                            <p class="text-slate-600 leading-relaxed">
+                                Organisme yang memakan serpihan-serpihan organik (detritus) dari sisa tumbuhan/hewan yang sudah mati secara mekanik.
+                            </p>
+                            <span class="text-slate-500 font-semibold italic block">Contoh: Cacing tanah, Keluwing (kaki seribu)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIAGRAM HUBUNGAN ARUS ENERGI -->
+                <div class="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span>🔄</span> Skema Aliran Arus Energi & Siklus Materi
+                    </h3>
+                    <div class="text-xs text-slate-600 space-y-2 bg-slate-50 p-4 rounded-lg">
+                        <p class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> <strong>Siklus Materi/Mineral:</strong> Produsen ➔ Konsumen I ➔ Konsumen II ➔ Konsumen III ➔ Dekomposer (dikembalikan ke tanah menjadi bahan mineral siap diserap tumbuhan).</p>
+                        <p class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> <strong>Arus Energi:</strong> Masuk sebagai energi matahari ➔ Diubah menjadi energi kimia ➔ Dilepas kembali ke lingkungan dalam bentuk panas pada setiap tingkatan trofik.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUBBAB B: INTERAKSI ANTARKOMPONEN EKOSISTEM -->
+            <section id="subbab-b" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">B</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Interaksi Antarkomponen Ekosistem</h2>
+                        <p class="text-xs text-slate-500">8 tipe pola persahabatan dan permusuhan alami di alam</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Di dalam ekosistem, tidak ada makhluk hidup yang bisa jomblo sendirian! Terjadi interaksi unik antarspesies, baik yang sama maupun yang berbeda spesies. Berikut adalah 8 tipe interaksinya:
+                </p>
+
+                <!-- GRID 8 INTERAKSI -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- NETRALISME -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-slate-200 text-slate-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Netral (0 / 0)</span>
+                            <h4 class="font-bold text-sm text-slate-800 mt-2">🛡️ Netralisme</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Dua spesies bertetangga dekat, tapi kebutuhan mereka berbeda total sehingga tidak saling memengaruhi.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Gajah & Burung Pemakan Bangkai di savana.</span>
+                    </div>
+
+                    <!-- KOMPETISI -->
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-red-200 text-red-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Kompetisi (- / -)</span>
+                            <h4 class="font-bold text-sm text-red-800 mt-2">🥊 Kompetisi</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Persaingan memperebutkan kebutuhan yang sama (makanan, air, wilayah, atau jodoh). Kalah bersaing bisa mati.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Sapi & Kambing berebut rumput hijau.</span>
+                    </div>
+
+                    <!-- KOMENSALISME -->
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-blue-200 text-blue-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Untung/Netral (+ / 0)</span>
+                            <h4 class="font-bold text-sm text-blue-800 mt-2">⚓ Komensalisme</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Satu pihak mendapat untung melimpah, sedangkan pihak satunya cuek saja (tidak rugi, tidak untung).</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Ikan Remora yang menempel pada Hiu.</span>
+                    </div>
+
+                    <!-- AMENSALISME -->
+                    <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-purple-200 text-purple-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Rugi/Netral (- / 0)</span>
+                            <h4 class="font-bold text-sm text-purple-800 mt-2">⚠️ Amensalisme</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Kebalikan komensalisme. Satu pihak dirugikan (biasanya karena racun alelopati), sedangkan satunya tak berpengaruh.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Nerium oleander menghasilkan racun oleandrin.</span>
+                    </div>
+
+                    <!-- PARASITISME -->
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-amber-200 text-amber-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Untung/Rugi (+ / -)</span>
+                            <h4 class="font-bold text-sm text-amber-800 mt-2">🦠 Parasitisme</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Parasit hidup dari tubuh inang. Ada endoparasit (dalam tubuh) & ektoparasit (luar tubuh).</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Tali Putri menumpang di tanaman lain.</span>
+                    </div>
+
+                    <!-- PREDASI -->
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-rose-200 text-rose-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Makan/Dimakan (+ / -)</span>
+                            <h4 class="font-bold text-sm text-rose-800 mt-2">🦁 Predasi</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Interaksi langsung di mana predator memangsa mangsanya (prey). Menjaga kestabilan populasi di alam.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Belalang sembah melahap lebah madu.</span>
+                    </div>
+
+                    <!-- PROTOKOOPERASI -->
+                    <div class="bg-teal-50 p-4 rounded-xl border border-teal-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-teal-200 text-teal-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Untung/Untung (+ / +)</span>
+                            <h4 class="font-bold text-sm text-teal-800 mt-2">🤝 Protokooperasi</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Saling menguntungkan, tapi interaksi ini TIDAK wajib. Kalau tidak berinteraksi pun mereka tetap hidup normal.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Burung Jalak memakan kutu di tubuh Kerbau.</span>
+                    </div>
+
+                    <!-- MUTUALISME -->
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-emerald-200 text-emerald-700 text-xs px-2.5 py-0.5 rounded-full font-bold">Wajib Bersama (+ / +)</span>
+                            <h4 class="font-bold text-sm text-emerald-800 mt-2">🌳 Mutualisme</h4>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Kedua pihak sangat diuntungkan dan WAJIB bersatu. Tanpa bersosialisasi, salah satu atau keduanya akan mati.</p>
+                        </div>
+                        <span class="text-xs text-slate-600 italic block mt-2 border-t pt-2">Contoh: Liken (Jamur & Ganggang Hijau-Biru).</span>
+                    </div>
+
+                </div>
+
+                <!-- CAROUSEL/GRID GAMBAR CONTOH INTERAKSI -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="space-y-2">
+                        <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=800&q=80" alt="Ikan remora berenang mendekati hiu besar" class="rounded-xl object-cover w-full h-48 border border-slate-200">
+                        <p class="text-xs text-slate-500 text-center italic">Komensalisme: Hiu memberikan tumpangan dan perlindungan aman bagi Remora.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" alt="Sapi-sapi dan kambing di padang rumput yang sama" class="rounded-xl object-cover w-full h-48 border border-slate-200">
+                        <p class="text-xs text-slate-500 text-center italic">Kompetisi: Sapi dan kambing saling berbagi ruang dan bersaing merebut rumput segar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUBBAB C: ALIRAN ENERGI -->
+            <section id="subbab-c" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">C</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Aliran Energi</h2>
+                        <p class="text-xs text-slate-500">Hukum termodinamika di dunia biologis</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-teal-900 to-emerald-800 text-white rounded-2xl p-6 space-y-4 shadow-sm">
+                    <h3 class="font-bold text-lg flex items-center gap-2">
+                        <span>⚡</span> Hukum Fisika di Dalam Tubuh Kita
+                    </h3>
+                    <p class="text-sm font-light leading-relaxed">
+                        Menurut <strong>Hukum Termodinamika</strong>, energi tidak dapat diciptakan maupun dimusnahkan, tetapi hanya dapat diubah dari satu bentuk ke bentuk yang lain. 
+                    </p>
+                    <p class="text-xs text-emerald-200 leading-relaxed bg-black/20 p-3 rounded-lg border border-white/10">
+                        <strong>Laju Perubahan:</strong> Energi Cahaya Matahari ➔ diubah Tumbuhan lewat Fotosintesis menjadi Energi Potensial Kimia (Karbohidrat) ➔ diubah oleh Konsumen (Hewan & Manusia) menjadi Energi Panas & Energi Gerak tubuh kita.
+                    </p>
+                </div>
+
+                <!-- RANTAI MAKANAN VS JARING MAKANAN -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- RANTAI MAKANAN -->
+                    <div class="border border-slate-200 p-5 rounded-2xl space-y-4">
+                        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                            <span>🔗</span> Rantai Makanan (Linier)
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Jalur pemindahan energi dari satu tingkat trofik ke tingkat trofik berikutnya melalui peristiwa makan dan dimakan secara satu arah lurus saja.
+                        </p>
+                        
+                        <!-- VISUALISASI RANTAI -->
+                        <div class="flex flex-wrap items-center justify-center gap-2 bg-slate-50 p-4 rounded-xl text-xs font-semibold text-slate-700">
+                            <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded">Padi🌾</span>
+                            <span>➔</span>
+                            <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded">Katak🐸</span>
+                            <span>➔</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded">Ular🐍</span>
+                            <span>➔</span>
+                            <span class="bg-slate-200 text-slate-800 px-2 py-1 rounded">Burung Hantu🦉</span>
+                        </div>
+                        <p class="text-xs text-slate-400 italic">"Semakin pendek rantai makanan, semakin besar energi yang tersisa di ujungnya!"</p>
+                    </div>
+
+                    <!-- JARING-JARING MAKANAN -->
+                    <div class="border border-slate-200 p-5 rounded-2xl space-y-4">
+                        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                            <span>🕸️</span> Jaring-Jaring Makanan (Kompleks)
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Gabungan rumit dari berbagai rantai makanan yang saling berhubungan di alam bebas. Faktanya, satu hewan tidak hanya makan satu jenis makanan saja!
+                        </p>
+                        <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-xl text-xs text-emerald-800">
+                            <strong>Prinsip Kestabilan:</strong> Semakin kompleks jaring-jaring makanan suatu ekosistem, maka akan semakin stabil ekosistem tersebut terhadap gangguan kepunahan salah satu spesies!
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SUBBAB D: PIRAMIDA EKOLOGI -->
+            <section id="subbab-d" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">D</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Piramida Ekologi</h2>
+                        <p class="text-xs text-slate-500">Mempelajari struktur tingkat energi secara visual</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Piramida ekologi menyusun tingkat trofik (nutrisi/energi) secara berurutan sesuai arah rantai makanan kita. Ada 3 jenis utama piramida ekologi:
+                </p>
+
+                <!-- 3 JENIS PIRAMIDA -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- PIRAMIDA JUMLAH -->
+                    <div class="border border-slate-200 p-4 rounded-xl space-y-3">
+                        <span class="text-emerald-700 font-bold text-sm block">📊 Piramida Jumlah</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">Mengukur jumlah total individu atau organisme di setiap tingkat trofik.</p>
+                        
+                        <!-- CSS PYRAMID VISUAL -->
+                        <div class="space-y-1 pt-4">
+                            <div class="bg-emerald-600 text-white text-[10px] py-1 text-center font-bold mx-auto rounded w-1/4">0.1%</div>
+                            <div class="bg-emerald-500 text-white text-[10px] py-1 text-center font-bold mx-auto rounded w-2/4">1%</div>
+                            <div class="bg-emerald-400 text-white text-[10px] py-1 text-center font-bold mx-auto rounded w-3/4">10%</div>
+                            <div class="bg-emerald-300 text-emerald-900 text-[10px] py-1 text-center font-bold mx-auto rounded w-full">100%</div>
+                        </div>
+                    </div>
+
+                    <!-- PIRAMIDA BIOMASSA -->
+                    <div class="border border-slate-200 p-4 rounded-xl space-y-3">
+                        <span class="text-emerald-700 font-bold text-sm block">⚖️ Piramida Biomassa</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">Menggambarkan berat atau massa kering total dari semua makhluk hidup pada kurun waktu tertentu.</p>
+                        <div class="bg-amber-50 text-[10px] p-2 rounded text-amber-800 leading-relaxed">
+                            <strong>Note:</strong> Di daratan piramidanya tegak, tapi di ekosistem perairan bisa terbalik karena biomassa fitoplankton melesat cepat lalu langsung dimakan zooplankton!
+                        </div>
+                    </div>
+
+                    <!-- PIRAMIDA ENERGI -->
+                    <div class="border border-slate-200 p-4 rounded-xl space-y-3">
+                        <span class="text-emerald-700 font-bold text-sm block">⚡ Piramida Energi (Terbaik)</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">Menggambarkan penurunan energi aktual secara berjenjang di setiap trofik.</p>
+                        <ul class="text-[10px] text-slate-600 space-y-1 list-disc pl-3">
+                            <li>Bebas dari pengaruh metabolisme.</li>
+                            <li>Menggambarkan fungsional komunitas.</li>
+                            <li>Merupakan tipe piramida ekologi paling akurat.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SUBBAB E: PRODUKTIVITAS -->
+            <section id="subbab-e" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">E</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Produktivitas Ekosistem</h2>
+                        <p class="text-xs text-slate-500">Laju pembuatan biomassa baru di alam bebas</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    <strong>Produktivitas</strong> adalah hasil akumulasi dari aktivitas metabolisme semua organisme berupa pertumbuhan, penambahan, dan penimbunan biomassa baru dalam kurun waktu tertentu. Kita bisa membaginya menjadi dua level laju:
+                </p>
+
+                <!-- GRID RUMUS / PRODUKTIVITAS -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- PRIMER -->
+                    <div class="bg-emerald-50/40 border border-emerald-200/60 p-6 rounded-2xl space-y-4">
+                        <span class="bg-emerald-200 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-bold">Level Produsen</span>
+                        <h3 class="font-bold text-emerald-900 text-base">Produktivitas Primer</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kecepatan pengubahan energi sinar matahari melalui fotosintesis oleh tanaman hijau menjadi simpanan energi kimia dalam bentuk zat makanan organik.
+                        </p>
+                        
+                        <!-- BOX RUMUS PENTING -->
+                        <div class="bg-white p-4 rounded-xl border border-emerald-200 text-xs space-y-2">
+                            <span class="font-bold text-emerald-800 block">🧮 Rumus Keseimbangan Energi</span>
+                            <div class="bg-slate-50 p-2.5 rounded font-mono text-center text-slate-800 border">
+                                $$\text{PPB} = \text{PPK} - \text{Respirasi}$$
+                            </div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed">
+                                <strong>PPK (Kotor):</strong> Total seluruh karbon organik hasil fotosintesis.<br>
+                                <strong>PPB (Bersih):</strong> Sisa karbon yang disimpan tanaman setelah dikurangi energi untuk ia bernapas (respirasi).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SEKUNDER -->
+                    <div class="bg-blue-50/40 border border-blue-200/60 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <span class="bg-blue-200 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">Level Konsumen</span>
+                            <h3 class="font-bold text-blue-900 text-base">Produktivitas Sekunder</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Kecepatan penyimpanan energi baru oleh organisme tingkat konsumen (hewan & manusia). 
+                            </p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Kita mengambil senyawa organik dari produsen lalu mengasimilasikannya ke dalam jaringan otot dan lemak kita sendiri. Laju asimilasi inilah yang menggemukkan kita!
+                            </p>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 text-xs italic text-blue-800">
+                            "Kita (heterotrof) sangat tergantung pada laju produktivitas bersih tanaman hijau!"
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SUBBAB F: DAUR BIOGEOKIMIA -->
+            <section id="subbab-f" class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <span class="text-3xl text-emerald-600 font-bold">F</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Daur Biogeokimia</h2>
+                        <p class="text-xs text-slate-500">Peredaran abadi unsur kimia dari bumi kembali ke bumi</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Unsur-unsur penyusun tubuh makhluk hidup tidak pernah habis di alam! Mereka berputar melintasi sistem biotik (hidup) dan abiotik (tanah, udara, air) secara abadi tanpa batas. Daur ini dikelompokkan menjadi 3 kelompok fisik:
+                </p>
+
+                <!-- DETAIL 5 SIKLUS UTAMA -->
+                <div class="space-y-4">
+                    
+                    <!-- 1. DAUR KARBON -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span> ⛅ Daur Karbon (Siklus Gas)
+                            </h3>
+                            <span class="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-bold">Respirasi & Fotosintesis</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Karbon dioksida ($CO_2$) di udara diserap tumbuhan lewat fotosintesis menghasilkan glukosa. Hewan memakannya, lalu melepaskan kembali $CO_2$ ke udara melalui respirasi (napas) dan penguraian jasad mati oleh mikroba pengurai. Ditambah dari polusi asap pabrik/kendaraan.
+                        </p>
+                    </div>
+
+                    <!-- 2. DAUR NITROGEN -->
+                    <div class="bg-teal-50/50 border border-teal-100 rounded-xl p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-teal-900 text-sm flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span> ⚡ Daur Nitrogen (Siklus Gas)
+                            </h3>
+                            <span class="text-[10px] bg-teal-200 text-teal-800 px-2 py-0.5 rounded font-bold">Fiksasi, Amonifikasi, Nitrifikasi</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Gas nitrogen ($N_2$) sangat banyak di udara tetapi tidak bisa langsung dihirup makhluk hidup. Perlu difiksasi (ditangkap) oleh bakteri tanah (seperti <i>Rhizobium</i>, <i>Azotobacter</i>, ganggang biru) ➔ Amonifikasi menjadi Amonia ($NH_3$) ➔ Nitrifikasi menjadi Nitrit ($NO_2^-$) lalu Nitrat ($NO_3^-$) yang subur untuk tumbuhan ➔ Denitrifikasi mengembalikannya lagi menjadi gas nitrogen bebas ($N_2$) ke langit.
+                        </p>
+                    </div>
+
+                    <!-- 3. DAUR AIR -->
+                    <div class="bg-blue-50/50 border border-blue-100 rounded-xl p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-blue-900 text-sm flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> 🌊 Daur Air / Siklus Hidrologi (Siklus Cair)
+                            </h3>
+                            <span class="text-[10px] bg-blue-200 text-blue-800 px-2 py-0.5 rounded font-bold">Evaporasi, Kondensasi, Presipitasi</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Air di laut/sungai menguap (Evaporasi) bersama uap air tumbuhan (Transpirasi) membentuk awan tebal di awang-awang (Kondensasi) ➔ Turun kembali ke tanah sebagai hujan lebat (Presipitasi) ➔ Menyerap masuk ke lapisan tanah (Infiltrasi & Perkolasi) menuju sungai dan kembali ke samudera lepas.
+                        </p>
+                    </div>
+
+                    <!-- 4. DAUR FOSFOR -->
+                    <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-amber-900 text-sm flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> 🦴 Daur Fosfor (Siklus Padat / Sedimen)
+                            </h3>
+                            <span class="text-[10px] bg-amber-200 text-amber-800 px-2 py-0.5 rounded font-bold">Tanpa Fase Atmosfer</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Daur ini sangat unik karena <strong>TIDAK</strong> melewati atmosfer udara sama sekali. Fosfat tersimpan di bebatuan bumi dan sedimen tanah purba. Ketika batuan melapuk, fosfat larut ke tanah ➔ Diserap tumbuhan untuk materi asam nukleat (DNA) dan tulang hewan ➔ Dikembalikan ke tanah via pembusukan mikroba ketika jasad mati.
+                        </p>
+                    </div>
+
+                    <!-- 5. DAUR SULFUR / BELERANG -->
+                    <div class="bg-rose-50/50 border border-rose-100 rounded-xl p-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-rose-900 text-sm flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> 🌋 Daur Sulfur / Belerang (Siklus Padat)
+                            </h3>
+                            <span class="text-[10px] bg-rose-200 text-rose-800 px-2 py-0.5 rounded font-bold">Sulfat & Gas Belerang</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Gas $SO_2$ atau $H_2S$ dilepaskan oleh aktivitas gunung berapi purba, pembakaran bahan bakar fosil batu bara, maupun sisa industri ➔ Bereaksi dengan uap air membentuk Hujan Asam ($SO_4^{2-}$ presipitasi) ➔ Masuk ke tanah diserap tanaman dalam bentuk Sulfat ($SO_4^{2-}$) untuk pembentukan asam amino protein.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- GLOSARIUM PINTAR -->
+            <section id="glosarium" class="bg-slate-950 text-slate-100 rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                    <span class="text-3xl">📚</span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Glosarium Pintar</h2>
+                        <p class="text-xs text-slate-400">Kamus cepat istilah biologi ekosistem</p>
+                    </div>
+                </div>
+
+                <!-- CARI CEPAT INSTAN -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">🍂 Alelopati</span>
+                        <p class="text-slate-400 leading-relaxed">Kemampuan makhluk hidup mematikan tanaman tetangga lewat racun zat kimia.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">☁️ Amonifikasi</span>
+                        <p class="text-slate-400 leading-relaxed">Rangkaian dekomposisi senyawa organik sisa tubuh menjadi zat amonia ($NH_3$).</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">🏜️ Bioma</span>
+                        <p class="text-slate-400 leading-relaxed">Ekosistem berskala daratan yang luas di mana wilayahnya dipengaruhi iklim global.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">🧬 Denitrifikasi</span>
+                        <p class="text-slate-400 leading-relaxed">Pelepasan zat nitrat tanah kembali bebas menjadi gas nitrogen ke awang-awang langit.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">📈 Suksesi</span>
+                        <p class="text-slate-400 leading-relaxed">Proses perubahan struktur komunitas tumbuhan dari sederhana hingga super kompleks.</p>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-bold text-emerald-400">🌲 Komunitas Klimaks</span>
+                        <p class="text-slate-400 leading-relaxed">Stase akhir suksesi yang seimbang sempurna, tenang, aman dan homeostasis.</p>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-center py-8 px-4 border-t border-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto space-y-3">
+            <p class="text-sm">
+                Dibuat dengan penuh rasa penasaran ilmiah oleh <strong class="text-white">Gemini Web Dev & Siswa Super Cerdas</strong> 🚀
+            </p>
+            <p class="text-xs text-slate-500">
+                © 2026 Belajar Bersama. Materi diadaptasi secara komprehensif dari PowerPoint Kurikulum Merdeka (modulguruku.com).
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
