@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Dashboard Collection</title>
+  <style>
+    :root {
+      --bg-1: #07111f;
+      --bg-2: #1d4ed8;
+      --bg-3: #8b5cf6;
+      --text: #f8fafc;
+      --muted: #dbeafe;
+      --glass: rgba(255, 255, 255, 0.16);
+      --glass-strong: rgba(255, 255, 255, 0.24);
+      --border: rgba(255, 255, 255, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 320px;
+      height: 320px;
+      background: rgba(255, 255, 255, 0.2);
+      top: -80px;
+      left: -80px;
+    }
+
+    body::after {
+      width: 360px;
+      height: 360px;
+      background: rgba(56, 189, 248, 0.25);
+      bottom: -120px;
+      right: -90px;
+    }
+
+    .dashboard {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto;
+      padding: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      padding: 28px;
+      border-radius: 24px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 45px rgba(2, 8, 23, 0.25);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .hero-pill {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--glass-strong);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card-link {
+      display: block;
+      padding: 22px;
+      min-height: 190px;
+      border-radius: 22px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(2, 8, 23, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(2, 8, 23, 0.28);
+    }
+
+    .card-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent 42%);
+      pointer-events: none;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.16);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-link h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .card-link p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .arrow {
+      display: inline-block;
+      margin-top: auto;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .tip-box {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--muted);
+    }
+
+    .tip-box strong { color: white; }
+
+    .copy-note {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <main class="dashboard">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PROJECT COLLECTION</span>
+        <h1>Archietilla Project Collection</h1>
+        <p>Bingo!</p>
+      </div>
+      <div class="hero-pill">SCHOOL PROJECT</div>
+    </section>
+
+    <section class="grid">
+      <a class="card-link" href="BakteriKelasX.html" target="_blank">
+        <span class="card-badge">01</span>
+        <h3>Materi Bakteri Kelas X</h3>
+        <p>Biologi, rangkuman materi Bakteri.</p>
+        <span class="arrow">Pelajari →</span>
+      </a>
+
+    </section>
+
+    <section class="tip-box">
+      <strong>This is vibe coded.</strong>
+      <div class="copy-note">Feel free to use it as learning materials.</div>
+    </section>
+  </main>
+</body>
+</html>
