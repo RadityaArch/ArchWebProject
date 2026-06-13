@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioLogika: Catatan Belajar Bakteri Komprehensif</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-serif-fancy {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d9488;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f766e;
+        }
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(15, 118, 110, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 transition-colors duration-300" id="body-theme">
+
+    <!-- TOP NAVIGATION & THEME TOGGLER -->
+    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 transition-colors duration-300" id="header-theme">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-teal-500/10 rounded-xl text-teal-400">
+                    <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                </span>
+                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">BioLogika</span>
+                <span class="hidden md:inline px-2 py-1 bg-slate-800 text-slate-400 text-xs font-semibold rounded-md border border-slate-700">Catatan Estetik Siswa</span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Theme Button -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 focus:outline-none transition-all">
+                    <!-- Sun Icon (Default in Dark Mode to switch to light) -->
+                    <svg id="theme-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                    </svg>
+                </button>
+                <a href="#ruang-uji" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white font-semibold text-sm rounded-xl shadow-lg shadow-teal-500/20 transition-all duration-300">
+                    Kuis & Flashcards
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="relative overflow-hidden bg-slate-950 pt-12 pb-20 border-b border-slate-900 transition-colors duration-300" id="hero-bg">
+        <!-- Abstract glowing circles in background -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-400 mb-6 border border-teal-500/20 animate-bounce">
+                    🚀 Catatan Belajar Ulangan Harian Biologi Kelas X
+                </span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Membedah Tuntas <br>
+                    <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent font-serif-fancy italic">Dunia Bakteri</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed" id="hero-sub">
+                    Hai! Aku ngerangkum seluruh materi Monera/Bakteri ini dari slide presentasi kelas, modul praktikum, dan soal tantangan. Semuanya dibikin komprehensif, interaktif, dan runut biar kita dapet nilai maksimal!
+                </p>
+                
+                <!-- Quick stats / Highlights -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-left mt-10">
+                    <div class="p-4 rounded-2xl glass-card border border-slate-800" id="stat-card-1">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Status Inti</div>
+                        <div class="text-lg font-bold text-teal-400">Prokariotik</div>
+                        <div class="text-xs text-slate-400 mt-1">Belum bermembran inti</div>
+                    </div>
+                    <div class="p-4 rounded-2xl glass-card border border-slate-800" id="stat-card-2">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Dinding Sel</div>
+                        <div class="text-lg font-bold text-emerald-400">Peptidoglikan</div>
+                        <div class="text-xs text-slate-400 mt-1">Struktur kaku pelindung</div>
+                    </div>
+                    <div class="p-4 rounded-2xl glass-card border border-slate-800" id="stat-card-3">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Dua Domain</div>
+                        <div class="text-lg font-bold text-cyan-400">Archaea & Eubacteria</div>
+                        <div class="text-xs text-slate-400 mt-1">Bakteri purba & sejati</div>
+                    </div>
+                    <div class="p-4 rounded-2xl glass-card border border-slate-800" id="stat-card-4">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Reproduksi</div>
+                        <div class="text-lg font-bold text-pink-400">Paraseksual</div>
+                        <div class="text-xs text-slate-400 mt-1">Transfer genetik unik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE WORKSPACE -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            
+            <!-- LEFT NAVIGATION SIDEBAR (STIKCY) -->
+            <aside class="hidden lg:block lg:col-span-3">
+                <div class="sticky top-24 space-y-4">
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-500 px-3">Daftar Isi Catatan</p>
+                    <nav class="space-y-1" id="desktop-nav">
+                        <button onclick="switchTab('tab-sejarah')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-teal-400 bg-slate-900 border-l-4 border-teal-500">
+                            <span>📜</span> <span class="font-semibold text-sm">Archaea vs Eubacteria</span>
+                        </button>
+                        <button onclick="switchTab('tab-struktur')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🧬</span> <span class="font-semibold text-sm">Struktur Sel (Interaktif)</span>
+                        </button>
+                        <button onclick="switchTab('tab-bentuk')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🧫</span> <span class="font-semibold text-sm">Bentuk & Flagela</span>
+                        </button>
+                        <button onclick="switchTab('tab-fisiologi')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🌡️</span> <span class="font-semibold text-sm">Fisiologi & Pewarnaan Gram</span>
+                        </button>
+                        <button onclick="switchTab('tab-reproduksi')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🔄</span> <span class="font-semibold text-sm">Daur Reproduksi</span>
+                        </button>
+                        <button onclick="switchTab('tab-peranan')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🍏</span> <span class="font-semibold text-sm">Peran Menguntungkan & Patogen</span>
+                        </button>
+                        <button onclick="switchTab('tab-uji')" class="tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900">
+                            <span>🧠</span> <span class="font-semibold text-sm">Ruang Uji Coba Kuis</span>
+                        </button>
+                    </nav>
+
+                    <!-- Student Quick Note Card -->
+                    <div class="p-5 rounded-2xl glass-card border border-slate-800 text-xs text-slate-400 leading-relaxed mt-6" id="quick-note-sidebar">
+                        <div class="flex items-center space-x-2 mb-2 text-yellow-400 font-bold">
+                            <span>💡</span> <span>Tips Menghafal</span>
+                        </div>
+                        Pahami konsepnya dulu baru hapal namanya. Misalnya <strong class="text-teal-400">"Monotrik"</strong> = <i>Mono</i> (satu) + <i>Trik</i> (rambut/flagel). Gak usah panik sama nama latin, mereka sangat deskriptif kok!
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MOBILE NAV BAR (SCROLLABLE ROW) -->
+            <div class="lg:hidden mb-8 overflow-x-auto whitespace-nowrap py-2 flex space-x-2" id="mobile-nav">
+                <button onclick="switchTab('tab-sejarah')" class="tab-btn-mobile px-4 py-2 bg-slate-900 text-teal-400 border border-teal-500/30 rounded-xl text-sm font-semibold transition-all">
+                    Archaea vs Eubacteria
+                </button>
+                <button onclick="switchTab('tab-struktur')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Struktur Sel
+                </button>
+                <button onclick="switchTab('tab-bentuk')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Bentuk & Flagela
+                </button>
+                <button onclick="switchTab('tab-fisiologi')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Gram & Fisiologi
+                </button>
+                <button onclick="switchTab('tab-reproduksi')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Reproduksi
+                </button>
+                <button onclick="switchTab('tab-peranan')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Peran Bakteri
+                </button>
+                <button onclick="switchTab('tab-uji')" class="tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all">
+                    Kuis & Flashcards
+                </button>
+            </div>
+
+            <!-- MAIN CONTENT AREA -->
+            <div class="lg:col-span-9 space-y-12">
+
+                <!-- TAB 1: SEJARAH & ARCHAEO vs EUBACTERIA -->
+                <section id="tab-sejarah" class="tab-content block space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="sejarah-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-pink-500/10 text-pink-400 rounded-xl">📜</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Domain Archaea vs Eubacteria</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Pertama-tama, sebelum kita masuk ke struktur sel bakteri, kita harus paham pembagian besarnya dulu. Dulu semuanya digabung dalam Kingdom Monera. Namun, berkat analisis filogenetik RNA ribosom oleh Carl Woese, Kingdom Monera dipecah menjadi dua domain besar karena mereka punya struktur molekuler dinding sel dan membran yang sangat berbeda jauh!
+                        </p>
+
+                        <!-- Highlighting Archaea (The Extremophiles) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-teal-500/20 hover:border-teal-500/40 transition-all">
+                                <h3 class="text-lg font-bold text-teal-400 mb-3 flex items-center">
+                                    <span class="mr-2">🌋</span> Archaebacteria (Bakteri Purba)
+                                </h3>
+                                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                    Disebut bakteri purba karena hidup di habitat ekstrem yang menyerupai kondisi awal bumi purba. Membran selnya memiliki ikatan eter dengan asam lemak bercabang, membuatnya sangat kokoh menahan panas, asam, dan kadar garam yang mengerikan. Dinding selnya tidak memiliki peptidoglikan sejati.
+                                </p>
+                                <div class="space-y-3">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <div class="font-bold text-xs text-teal-300">1. Metanogen (Penghasil Gas)</div>
+                                        <p class="text-xs text-slate-400 mt-1">
+                                            Anaerob obligat (mati jika terkena oksigen). Mereka mereduksi karbondioksida menjadi gas metana ($CH_4$). Hidup di rawa-rawa atau saluran pencernaan hewan (ruminansia). Contoh: <span class="italic font-semibold text-slate-200">Methanobacterium</span>.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <div class="font-bold text-xs text-teal-300">2. Halofil Ekstrem (Pecinta Garam)</div>
+                                        <p class="text-xs text-slate-400 mt-1">
+                                            Hidup di air dengan kadar garam luar biasa tinggi (seperti Laut Mati). Memiliki pigmen bakteriorodopsin untuk fotosintesis sederhana. Contoh: <span class="italic font-semibold text-slate-200">Halobacterium</span>.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <div class="font-bold text-xs text-teal-300">3. Termoasidofil Ekstrem (Pecinta Panas & Asam)</div>
+                                        <p class="text-xs text-slate-400 mt-1">
+                                            Tahan suhu hingga 110°C dan keasaman tinggi (pH 1-2) seperti kawah gunung berapi atau sumber air panas belerang. Contoh: <span class="italic font-semibold text-slate-200">Sulfolobus</span> atau <span class="italic font-semibold text-slate-200">Thermus aquaticus</span> (sumber enzim PCR legendaris!).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/40 transition-all">
+                                <h3 class="text-lg font-bold text-emerald-400 mb-3 flex items-center">
+                                    <span class="mr-2">🦠</span> Eubacteria (Bakteri Sejati)
+                                </h3>
+                                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                    Inilah bakteri sejati yang sering kita temui di kehidupan sehari-hari (bersifat kosmopolit: tanah, air, udara, tubuh makhluk hidup). Dinding selnya tersusun atas peptidoglikan (polimer gula dan asam amino). Membran plasmanya tersusun atas lipid dengan ikatan ester (tidak bercabang).
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
+                                    <h4 class="font-bold text-xs text-emerald-300 uppercase tracking-wider">Ciri-Ciri Utama Eubacteria</h4>
+                                    <ul class="text-xs text-slate-400 space-y-2 list-disc pl-4">
+                                        <li>Uniseluler, berukuran mikroskopis (1-5 mikron).</li>
+                                        <li>Prokariotik (tidak memiliki membran nukleus).</li>
+                                        <li>Memiliki materi genetik berupa DNA utama (kromosom sirkuler) dan DNA ekstra sirkuler kecil yang dinamakan <strong class="text-slate-200">Plasmid</strong>.</li>
+                                        <li>Mampu beradaptasi dengan kondisi tidak menguntungkan dengan membentuk kista pertahanan khusus bernama <strong class="text-slate-200">Endospora</strong>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Comparison Table -->
+                        <div class="mt-8">
+                            <h4 class="text-md font-bold mb-4 text-slate-300">Tabel Perbandingan Mutlak: Archaea vs Eubacteria</h4>
+                            <div class="overflow-x-auto rounded-xl border border-slate-800">
+                                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                                    <thead>
+                                        <tr class="bg-slate-900 border-b border-slate-800 text-slate-300">
+                                            <th class="p-4 font-bold">Karakteristik</th>
+                                            <th class="p-4 font-bold text-teal-400">Archaebacteria</th>
+                                            <th class="p-4 font-bold text-emerald-400">Eubacteria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800 text-slate-400">
+                                        <tr class="hover:bg-slate-900/30">
+                                            <td class="p-4 font-semibold text-slate-300">Dinding Sel</td>
+                                            <td class="p-4">Pseudopeptidoglikan / Protein murni (Tanpa peptidoglikan)</td>
+                                            <td class="p-4">Mengandung peptidoglikan utuh</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-900/30">
+                                            <td class="p-4 font-semibold text-slate-300">Lipid Membran Sel</td>
+                                            <td class="p-4">Hidrokarbon bercabang (Ikatan Eter)</td>
+                                            <td class="p-4">Hidrokarbon lurus (Ikatan Ester)</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-900/30">
+                                            <td class="p-4 font-semibold text-slate-300">Asam Amino Inisiator Sintesis Protein</td>
+                                            <td class="p-4">Metionin</td>
+                                            <td class="p-4">Formil-metionin</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-900/30">
+                                            <td class="p-4 font-semibold text-slate-300">Habitat</td>
+                                            <td class="p-4">Ekstrem (Suhu tinggi, asam, salinitas ekstrim)</td>
+                                            <td class="p-4">Kosmopolit (Ditemukan di mana-mana)</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-900/30">
+                                            <td class="p-4 font-semibold text-slate-300">Sensitivitas Terhadap Antibiotik</td>
+                                            <td class="p-4">Tidak terhambat oleh antibiotik komersial</td>
+                                            <td class="p-4">Terhambat/sensitif terhadap antibiotik</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: INTERACTIVE STRUCTURE OF BACTERIAL CELL -->
+                <section id="tab-struktur" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="struktur-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-teal-500/10 text-teal-400 rounded-xl">🧬</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Anatomi Sel Bakteri Prokariotik</h2>
+                        </div>
+                        <p class="text-slate-300 mb-8 leading-relaxed">
+                            Bakteri adalah sel tunggal yang efisien. Mari pelajari bagian dalamnya! <strong class="text-teal-400">Arahkan kursor atau klik</strong> komponen pada diagram di bawah untuk menampilkan penjelasan fungsi, rahasia patogenisitasnya, dan cara menghafal khas siswa!
+                        </p>
+
+                        <!-- Interactive Diagram Container -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                            
+                            <!-- Left: Interactive SVG Diagram -->
+                            <div class="lg:col-span-7 flex flex-col items-center">
+                                <div class="p-4 bg-slate-900/40 rounded-2xl border border-slate-800 w-full flex justify-center items-center shadow-inner relative">
+                                    <span class="absolute top-3 left-3 px-2 py-1 bg-slate-950 text-[10px] uppercase font-bold text-teal-400 tracking-wider rounded border border-slate-800">
+                                        💡 Klik/Ketuk Bagian untuk Membedah
+                                    </span>
+                                    
+                                    <!-- Dynamic Bacterial SVG -->
+                                    <svg viewBox="0 0 500 350" class="w-full max-w-md h-auto" id="bacterial-svg">
+                                        <defs>
+                                            <!-- Glow filter for selections -->
+                                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                            </filter>
+                                        </defs>
+
+                                        <!-- Outer capsule shadow/background glow -->
+                                        <rect x="130" y="70" width="220" height="150" rx="75" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-opacity="0.1" />
+
+                                        <!-- PILI / FIMBRIA (hair-like structures) -->
+                                        <g stroke="#94a3b8" stroke-width="2.5" opacity="0.8">
+                                            <!-- Top hairs -->
+                                            <line x1="150" y1="75" x2="135" y2="55" />
+                                            <line x1="180" y1="70" x2="175" y2="45" />
+                                            <line x1="220" y1="70" x2="220" y2="40" />
+                                            <line x1="260" y1="70" x2="265" y2="45" />
+                                            <line x1="300" y1="70" x2="310" y2="50" />
+                                            <!-- Bottom hairs -->
+                                            <line x1="150" y1="215" x2="135" y2="235" />
+                                            <line x1="180" y1="220" x2="175" y2="245" />
+                                            <line x1="220" y1="220" x2="220" y2="250" />
+                                            <line x1="260" y1="220" x2="265" y2="245" />
+                                            <line x1="300" y1="220" x2="310" y2="240" />
+                                            <!-- Left cap hairs -->
+                                            <line x1="125" y1="120" x2="100" y2="105" />
+                                            <line x1="120" y1="150" x2="90" y2="150" />
+                                            <line x1="125" y1="180" x2="100" y2="195" />
+                                            <!-- Right cap hairs -->
+                                            <line x1="355" y1="120" x2="380" y2="105" />
+                                            <line x1="360" y1="150" x2="390" y2="150" />
+                                            <line x1="355" y1="180" x2="380" y2="195" />
+                                        </g>
+
+                                        <!-- FLAGELA (wavy tails coming from one side) -->
+                                        <g stroke="#f43f5e" stroke-width="4.5" fill="none" opacity="0.9" cursor="pointer" onclick="selectPart('flagela')">
+                                            <path d="M 120 150 C 70 170, 80 100, 30 130 C 10 140, 20 180, 5 160" stroke-dasharray="100" stroke-dashoffset="0" class="animate-pulse" />
+                                            <path d="M 120 160 C 65 190, 75 220, 25 190" />
+                                        </g>
+
+                                        <!-- LAYERS OF THE ENVELOPE -->
+                                        <!-- 1. KAPSUL (Outermost pill) -->
+                                        <rect id="svg-kapsul" x="125" y="75" width="230" height="140" rx="70" fill="#134e4a" fill-opacity="0.2" stroke="#14b8a6" stroke-width="8" class="cursor-pointer transition-all hover:stroke-teal-300" onclick="selectPart('kapsul')" />
+                                        
+                                        <!-- 2. DINDING SEL (Middle pill) -->
+                                        <rect id="svg-dinding" x="133" y="83" width="214" height="124" rx="62" fill="#064e3b" fill-opacity="0.3" stroke="#22c55e" stroke-width="5" class="cursor-pointer transition-all hover:stroke-green-300" onclick="selectPart('dinding')" />
+                                        
+                                        <!-- 3. MEMBRAN SEL (Innermost pill) -->
+                                        <rect id="svg-membran" x="139" y="89" width="202" height="112" rx="56" fill="#1e1b4b" fill-opacity="0.5" stroke="#3b82f6" stroke-width="3" class="cursor-pointer transition-all hover:stroke-blue-300" onclick="selectPart('membran')" />
+
+                                        <!-- SITOPLASMA background (covered by membran sel fill) -->
+
+                                        <!-- NUKLEOID / DNA UTAMA (wavy path in the center) -->
+                                        <path id="svg-nukleoid" d="M 180 135 C 190 120, 210 110, 220 130 C 230 150, 210 170, 230 170 C 250 170, 270 140, 290 150 C 310 160, 270 120, 250 135 C 230 150, 200 150, 180 135 Z" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-linecap="round" class="cursor-pointer transition-all hover:stroke-amber-400" onclick="selectPart('nukleoid')" />
+
+                                        <!-- PLASMID (small circles) -->
+                                        <g id="svg-plasmid" class="cursor-pointer hover:opacity-100 opacity-80" onclick="selectPart('plasmid')">
+                                            <circle cx="300" cy="115" r="12" fill="none" stroke="#a855f7" stroke-width="3.5" />
+                                            <circle cx="285" cy="185" r="8" fill="none" stroke="#a855f7" stroke-width="3" />
+                                        </g>
+
+                                        <!-- RIBOSOM (dots) -->
+                                        <g id="svg-ribosom" class="cursor-pointer hover:opacity-100 opacity-80" onclick="selectPart('ribosom')">
+                                            <circle cx="160" cy="110" r="3" fill="#ec4899" />
+                                            <circle cx="175" cy="180" r="3" fill="#ec4899" />
+                                            <circle cx="320" cy="170" r="3" fill="#ec4899" />
+                                            <circle cx="260" cy="105" r="3" fill="#ec4899" />
+                                            <circle cx="310" cy="140" r="3" fill="#ec4899" />
+                                        </g>
+
+                                        <!-- MESOSOM (Folded membrane) -->
+                                        <path id="svg-mesosom" d="M 335 110 C 320 110, 315 125, 338 135" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" class="cursor-pointer transition-all hover:stroke-blue-400" onclick="selectPart('mesosom')" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Right: Dynamic Explanatory Glass Card -->
+                            <div class="lg:col-span-5">
+                                <div id="part-info-box" class="p-6 rounded-2xl border transition-all duration-300 shadow-xl" style="background: rgba(13, 148, 136, 0.1); border-color: rgba(13, 148, 136, 0.3);">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span id="part-badge" class="px-2.5 py-1 text-xs font-bold uppercase rounded bg-teal-500/20 text-teal-300">
+                                            Terpilih Secara Default
+                                        </span>
+                                        <span class="text-xs text-slate-500 font-semibold" id="click-tip">Pilih bagian sel di sebelah kiri!</span>
+                                    </div>
+                                    <h3 id="part-title" class="text-xl font-extrabold text-white mb-2">
+                                        Lapisan Kapsul (Glikokaliks)
+                                    </h3>
+                                    <p id="part-description" class="text-slate-300 text-sm leading-relaxed mb-4">
+                                        Lapisan terluar sel bakteri berbentuk lendir tebal yang tersusun atas glikoprotein atau polisakarida. Berfungsi kuat untuk pertahanan dari kekeringan ekstrem, serta mencegah bakteri dari serangan proses fagositosis (pemakanan) oleh sel darah putih inang.
+                                    </p>
+                                    <div class="p-4 bg-slate-950/80 rounded-xl border border-slate-800 space-y-2">
+                                        <div class="text-xs font-bold text-yellow-400 flex items-center">
+                                            <span>🧠</span> <span class="ml-1">Sudut Pandang Siswa (Kenapa Ini Penting?):</span>
+                                        </div>
+                                        <p id="part-student-takeaway" class="text-xs text-slate-400 leading-relaxed italic">
+                                            "Bakteri patogen itu biasanya punya kapsul tebal banget, makanya sistem imun kita susah banget makan mereka! Sementara bakteri yang gak punya kapsul cenderung non-patogen karena langsung bisa dihancurkan imun kita dengan mudah."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Extra Critical Notes on Inclusions (Endospores & WC Blockers!) -->
+                        <div class="mt-10 p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                            <h3 class="text-md font-bold text-slate-200 mb-4 flex items-center">
+                                <span class="mr-2">💡</span> Struktur Khusus & Soal Analisis Penting!
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                <div class="space-y-2">
+                                    <h4 class="font-bold text-teal-400 flex items-center">
+                                        <span class="text-xs px-1.5 py-0.5 bg-teal-500/10 text-teal-300 rounded mr-2">1</span> Endospora (Pertahanan Ekstrem)
+                                    </h4>
+                                    <p class="text-slate-400 text-xs leading-relaxed">
+                                        Saat lingkungan tidak menguntungkan (sangat panas, radiasi tinggi, atau kurang air), beberapa genus bakteri seperti <span class="italic font-semibold">Bacillus</span> dan <span class="italic font-semibold">Clostridium</span> membentuk endospora di dalam tubuhnya. Endospora ini membungkus DNA bakteri dengan lapisan protein keratin yang sangat tebal dan tidak aktif bermetabolisme (dorman). <strong class="text-yellow-400">Penting:</strong> Ini bukan reproduksi, melainkan fase bertahan hidup!
+                                    </p>
+                                </div>
+                                <div class="space-y-2">
+                                    <h4 class="font-bold text-pink-400 flex items-center">
+                                        <span class="text-xs px-1.5 py-0.5 bg-pink-500/10 text-pink-300 rounded mr-2">2</span> Kasus Saluran WC & Kreolin/Lisol
+                                    </h4>
+                                    <p class="text-slate-400 text-xs leading-relaxed">
+                                        Mengapa kita dilarang membuang pembersih antiseptik kuat seperti <strong class="text-slate-300">kreolin</strong> atau <strong class="text-slate-300">lisol</strong> ke lubang tinja/saluran WC? Karena bahan-bahan tersebut mengandung senyawa kimia fenol yang membunuh semua bakteri, termasuk <strong class="text-pink-300">Bakteri Pengurai Saprofit</strong> yang tinggal di septic tank. Akibatnya, tinja tidak lagi didegradasi secara alamiah, menyebabkan septic tank cepat tersumbat dan penuh!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 3: BENTUK-BENTUK BAKTERI & FLAGELA -->
+                <section id="tab-bentuk" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="bentuk-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-pink-500/10 text-pink-400 rounded-xl">🧫</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Morfologi: Bentuk Sel & Distribusi Flagela</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Meskipun bersel satu, bakteri punya variasi morfologi luar biasa. Nama ilmiah bakteri pun sering diambil dari bentuk fisiknya. Mari kita klasifikasikan macam-macam bentuk sel dan jumlah flagela (bulu cambuk) bakteri secara runut.
+                        </p>
+
+                        <!-- Sub-tab 3a: Bentuk Sel (Coccus, Bacillus, Spirillum) -->
+                        <div class="space-y-6">
+                            <h3 class="text-lg font-bold text-teal-400 border-b border-slate-800 pb-2">1. Klasifikasi Bentuk Sel Bakteri</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Kokus (Bulat) -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span class="px-2 py-1 bg-teal-500/10 text-teal-300 text-xs font-bold rounded">Kokus (Bulat)</span>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Kelompok Bakteri Bulat</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">Sel bulat tunggal atau koloni hasil pembelahan.</p>
+                                        <div class="mt-4 space-y-2 text-xs">
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Monokokus (Tunggal)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Monococcus luteus</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Diplokokus (Berpasangan)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Neisseria gonorrhoeae</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Streptokokus (Rantai)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Streptococcus pyogenes</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Stafilokokus (Grombolan Anggur)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Staphylococcus aureus</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Sarkina (Kubus 8 Sel)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Sarcina lutea</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Simple SVG visual representation -->
+                                    <div class="mt-4 h-12 flex items-center justify-center space-x-1 border-t border-slate-800/40 pt-3">
+                                        <circle cx="0" cy="0" r="6" class="fill-teal-500" />
+                                        <div class="flex -space-x-1">
+                                            <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
+                                            <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
+                                        </div>
+                                        <div class="flex space-x-0.5">
+                                            <div class="w-2.5 h-2.5 bg-teal-300 rounded-full"></div>
+                                            <div class="w-2.5 h-2.5 bg-teal-300 rounded-full"></div>
+                                            <div class="w-2.5 h-2.5 bg-teal-300 rounded-full"></div>
+                                            <div class="w-2.5 h-2.5 bg-teal-300 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Basil (Batang) -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span class="px-2 py-1 bg-green-500/10 text-green-300 text-xs font-bold rounded">Basil (Batang)</span>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Kelompok Bakteri Batang</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">Sel berbentuk silinder silindris memanjang.</p>
+                                        <div class="mt-4 space-y-2 text-xs">
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Monobasil (Tunggal)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Escherichia coli</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Diplobasil (Berpasangan)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Salmonella typhi</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Streptobasil (Rantai Batang)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Bacillus anthracis</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Simple SVG visual representation -->
+                                    <div class="mt-4 h-12 flex items-center justify-center space-x-2 border-t border-slate-800/40 pt-3">
+                                        <div class="w-8 h-4 bg-green-500 rounded-full"></div>
+                                        <div class="flex -space-x-1">
+                                            <div class="w-6 h-3 bg-green-400 rounded-full"></div>
+                                            <div class="w-6 h-3 bg-green-400 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Spiral -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span class="px-2 py-1 bg-purple-500/10 text-purple-300 text-xs font-bold rounded">Spiral (Bergelombang)</span>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Kelompok Spiral</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">Bentuk tubuh bergelombang, bengkok, atau heliks kaku.</p>
+                                        <div class="mt-4 space-y-2 text-xs">
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Spiral (Melengkung Kaku)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Spirillum volutans</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Vibrio (Koma / Bengkok)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Vibrio cholerae</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-2 bg-slate-950 rounded border border-slate-900">
+                                                <span>Spiroseta (Ulir Fleksibel)</span>
+                                                <span class="italic text-slate-400 text-[10px]">Treponema pallidum</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Simple SVG visual representation -->
+                                    <div class="mt-4 h-12 flex items-center justify-center space-x-3 border-t border-slate-800/40 pt-3">
+                                        <!-- Vibrio shape -->
+                                        <svg class="w-8 h-4 text-purple-400" viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="3">
+                                            <path d="M 5,5 Q 15,18 35,5" stroke-linecap="round" />
+                                        </svg>
+                                        <!-- Spirochete shape -->
+                                        <svg class="w-12 h-4 text-purple-500" viewBox="0 0 60 20" fill="none" stroke="currentColor" stroke-width="3">
+                                            <path d="M 5,10 Q 15,0 25,10 T 45,10 T 55,10" stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-tab 3b: Flagel (Monotrik, Lofotrik, Amfitrik, Peritrik) -->
+                        <div class="space-y-6 mt-10">
+                            <h3 class="text-lg font-bold text-teal-400 border-b border-slate-800 pb-2">2. Klasifikasi Berdasarkan Jumlah & Letak Flagela</h3>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                <!-- Atrik -->
+                                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800 text-center">
+                                    <div class="h-16 flex items-center justify-center mb-3">
+                                        <svg viewBox="0 0 100 40" class="w-20 h-auto">
+                                            <rect x="25" y="10" width="50" height="20" rx="10" fill="#475569" />
+                                        </svg>
+                                    </div>
+                                    <div class="font-bold text-xs">Atrik</div>
+                                    <p class="text-[10px] text-slate-500 mt-1">Tidak punya flagela sama sekali</p>
+                                </div>
+
+                                <!-- Monotrik -->
+                                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800 text-center">
+                                    <div class="h-16 flex items-center justify-center mb-3">
+                                        <svg viewBox="0 0 100 40" class="w-20 h-auto">
+                                            <rect x="25" y="10" width="50" height="20" rx="10" fill="#2dd4bf" />
+                                            <path d="M 75,20 C 85,15 85,25 95,20" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                        </svg>
+                                    </div>
+                                    <div class="font-bold text-xs text-teal-400">Monotrik</div>
+                                    <p class="text-[10px] text-slate-500 mt-1">Satu flagela di salah satu ujung sel</p>
+                                </div>
+
+                                <!-- Lofotrik -->
+                                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800 text-center">
+                                    <div class="h-16 flex items-center justify-center mb-3">
+                                        <svg viewBox="0 0 100 40" class="w-20 h-auto">
+                                            <rect x="25" y="10" width="50" height="20" rx="10" fill="#2dd4bf" />
+                                            <path d="M 75,15 C 85,10 85,20 95,15" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                            <path d="M 75,20 C 85,15 85,25 95,20" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                            <path d="M 75,25 C 85,20 85,30 95,25" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                        </svg>
+                                    </div>
+                                    <div class="font-bold text-xs text-teal-400">Lofotrik</div>
+                                    <p class="text-[10px] text-slate-500 mt-1">Banyak flagela di salah satu ujung sel</p>
+                                </div>
+
+                                <!-- Amfitrik -->
+                                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800 text-center">
+                                    <div class="h-16 flex items-center justify-center mb-3">
+                                        <svg viewBox="0 0 100 40" class="w-20 h-auto">
+                                            <rect x="25" y="10" width="50" height="20" rx="10" fill="#2dd4bf" />
+                                            <path d="M 75,20 C 85,15 85,25 95,20" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                            <path d="M 25,20 C 15,15 15,25 5,20" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                        </svg>
+                                    </div>
+                                    <div class="font-bold text-xs text-teal-400">Amfitrik</div>
+                                    <p class="text-[10px] text-slate-500 mt-1">Dua flagela di kedua ujung berlawanan</p>
+                                </div>
+
+                                <!-- Peritrik -->
+                                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800 text-center">
+                                    <div class="h-16 flex items-center justify-center mb-3">
+                                        <svg viewBox="0 0 100 40" class="w-20 h-auto">
+                                            <rect x="25" y="10" width="50" height="20" rx="10" fill="#2dd4bf" />
+                                            <path d="M 40,10 C 40,0 45,0 45,5" stroke="#f43f5e" stroke-width="2" fill="none" />
+                                            <path d="M 60,10 C 60,0 65,0 65,5" stroke="#f43f5e" stroke-width="2" fill="none" />
+                                            <path d="M 40,30 C 40,40 45,40 45,35" stroke="#f43f5e" stroke-width="2" fill="none" />
+                                            <path d="M 60,30 C 60,40 65,40 65,35" stroke="#f43f5e" stroke-width="2" fill="none" />
+                                            <path d="M 75,20 C 85,15 85,25 95,20" stroke="#f43f5e" stroke-width="2.5" fill="none" />
+                                        </svg>
+                                    </div>
+                                    <div class="font-bold text-xs text-teal-400">Peritrik</div>
+                                    <p class="text-[10px] text-slate-500 mt-1">Flagela tersebar di seluruh tubuh sel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 4: FISIOLOGI & PEWARNAAN GRAM -->
+                <section id="tab-fisiologi" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="fisiologi-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-teal-500/10 text-teal-400 rounded-xl">🌡️</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Fisiologi, Kebutuhan Oksigen, & Pewarnaan Gram</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Ini adalah subbab terpenting yang sering keluar di pilihan ganda ujian biologi! Kita akan membedah bagaimana bakteri memperoleh nutrisi, kebutuhan gas oksigennya, serta perbedaan mutlak bakteri Gram-Positif vs Gram-Negatif.
+                        </p>
+
+                        <!-- Gram Positive vs Gram Negative Comparison -->
+                        <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800 mb-8">
+                            <h3 class="text-lg font-bold text-emerald-400 mb-4 flex items-center">
+                                🔬 Perbedaan Mutlak Pewarnaan Gram
+                            </h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                                Pewarnaan Gram dikembangkan oleh Christian Gram untuk mengidentifikasi jenis dinding sel bakteri. Hasilnya dibagi menjadi dua kelompok besar yang berimplikasi langsung pada efektivitas jenis antibiotik yang dipakai secara klinis medis.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="p-4 bg-slate-950 rounded-xl border-l-4 border-purple-500">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-bold text-purple-400 text-sm">Bakteri Gram-Positif (Ungu)</h4>
+                                        <span class="px-2 py-0.5 bg-purple-500/10 text-purple-300 text-[10px] rounded font-bold">Purple</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                                        Dinding selnya memiliki lapisan <strong>peptidoglikan yang sangat tebal</strong> (dan terdapat asam teikoat). Lapisan ini mengikat erat zat warna utama (kristal violet) saat proses pencucian alkohol sehingga sel tetap berwarna ungu pekat di akhir pengamatan.
+                                    </p>
+                                    <div class="text-xs text-slate-300">
+                                        <strong>Contoh Genus:</strong> <span class="italic text-teal-400">Bacillus, Staphylococcus, Streptococcus, Lactobacillus</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-slate-950 rounded-xl border-l-4 border-pink-500">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-bold text-pink-400 text-sm">Bakteri Gram-Negatif (Merah/Pink)</h4>
+                                        <span class="px-2 py-0.5 bg-pink-500/10 text-pink-300 text-[10px] rounded font-bold">Pink / Red</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                                        Dinding sel memiliki lapisan <strong>peptidoglikan tipis</strong> yang dilapisi lagi oleh membran luar lipid (lipopolisakarida - LPS) yang kompleks. Saat dicuci alkohol, membran luar lisis dan zat warna kristal violet luntur, lalu menyerap pewarna tandingan (Safranin) sehingga tampak berwarna merah muda.
+                                    </p>
+                                    <div class="text-xs text-slate-300">
+                                        <strong>Contoh Genus:</strong> <span class="italic text-teal-400">Escherichia, Salmonella, Pseudomonas, Vibrio</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 bg-teal-950/20 rounded-xl border border-teal-800/30 text-xs text-slate-400 leading-relaxed">
+                                <strong class="text-teal-300">💡 Rahasia Medis Klinis:</strong> Bakteri Gram-Negatif cenderung jauh lebih resisten/kebal terhadap antibiotik (seperti Penisilin) karena adanya membran luar lipopolisakarida pelindung eksternal, sehingga menyulitkan obat menembus masuk ke dalam sel.
+                            </div>
+                        </div>
+
+                        <!-- Metabolism & Oxygen Requirement Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Nutrisi -->
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                                <h3 class="text-md font-bold text-teal-400 mb-4 flex items-center">
+                                    🍔 Cara Memperoleh Nutrisi
+                                </h3>
+                                <div class="space-y-4 text-xs">
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">A. Bakteri Autotrof (Bikin Makanan Sendiri)</h4>
+                                        <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                            <li><strong class="text-teal-300">Fotoautotrof:</strong> Pakai energi cahaya matahari. Contoh: Bakteri belerang hijau dan ungu, atau Alga Hijau-Biru (Cyanobacteria).</li>
+                                            <li><strong class="text-teal-300">Kemoautotrof:</strong> Pakai energi oksidasi senyawa kimia anorganik (seperti amonia, nitrit). Contoh: <span class="italic">Nitrosomonas, Nitrosococcus</span> (pengoksidasi amonia jadi nitrit), dan <span class="italic">Nitrobacter</span> (nitrit jadi nitrat).</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">B. Bakteri Heterotrof (Ambil dari Luar)</h4>
+                                        <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                            <li><strong class="text-teal-300">Saprofit (Pengurai):</strong> Menyerap senyawa organik dari bangkai/sampah organik mati. Contoh: Bakteri pembersih selulosa tanah.</li>
+                                            <li><strong class="text-teal-300">Parasit / Patogen:</strong> Menumpang hidup pada jaringan inang hidup dan menyebabkan penyakit. Contoh: <span class="italic">Salmonella typhi</span> (tifus).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Oksigen -->
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                                <h3 class="text-md font-bold text-teal-400 mb-4 flex items-center">
+                                    💨 Kebutuhan Terhadap Oksigen ($O_2$)
+                                </h3>
+                                <div class="space-y-3 text-xs">
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-900">
+                                        <div class="font-bold text-white mb-1">1. Aerob Obligat (Wajib Ada Oksigen)</div>
+                                        <p class="text-slate-400 leading-relaxed">
+                                            Memerlukan oksigen untuk menghasilkan energi dari respirasi sel. Tanpa oksigen, mereka akan mati. Contoh: <span class="italic text-emerald-300">Nitrobacter, Bacillus subtilis</span>.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-900">
+                                        <div class="font-bold text-white mb-1">2. Anaerob Obligat (Mati Jika Ada Oksigen)</div>
+                                        <p class="text-slate-400 leading-relaxed">
+                                            Oksigen bersifat toksik bagi mereka karena mereka tidak memiliki enzim penetral radikal bebas oksigen. Contoh: <span class="italic text-pink-300">Clostridium tetani</span> (bakteri tetanus yang suka hidup di dalam luka tertutup rapat berkarat).
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-900">
+                                        <div class="font-bold text-white mb-1">3. Anaerob Fakultatif (Fleksibel)</div>
+                                        <p class="text-slate-400 leading-relaxed">
+                                            Bisa hidup menggunakan oksigen, namun jika oksigen habis mereka bisa bertransisi menghasilkan energi lewat jalur fermentasi. Contoh: <span class="italic text-teal-300">Escherichia coli, Salmonella typhi</span>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 5: REPRODUKSI BAKTERI (DAUR HIDUP) -->
+                <section id="tab-reproduksi" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="reproduksi-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-pink-500/10 text-pink-400 rounded-xl">🔄</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Mekanisme Reproduksi Aseksual & Paraseksual</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Apakah bakteri kawin? <strong class="text-pink-400">Jawabannya: Tidak secara seksual sejati!</strong> Bakteri tidak memiliki organ kelamin jantan dan betina serta tidak membentuk gamet haploid melalui meiosis. Namun, bakteri melakukan pertukaran materi genetik dengan metode yang dinamakan <strong class="text-teal-400">Paraseksual (Rekombinasi Genetik)</strong>. Mari pelajari detailnya di bawah ini!
+                        </p>
+
+                        <!-- 1. Aseksual: Pembelahan Biner -->
+                        <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800 mb-8">
+                            <h3 class="text-lg font-bold text-teal-400 mb-3 flex items-center">
+                                🧬 1. Reproduksi Aseksual: Pembelahan Biner (Amitosis)
+                            </h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                Merupakan cara utama bakteri bereproduksi dengan cepat. Satu sel induk mereplikasi materi genetiknya (DNA sirkuler) lalu langsung membelah menjadi dua sel anakan yang identik tanpa melalui fase-fase mitosis yang rumit. Proses ini dapat berlangsung sangat cepat (seperti <span class="italic">E. coli</span> yang membelah setiap 20 menit pada kondisi nutrisi optimum!).
+                            </p>
+                            <!-- Step diagram description -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-400 mt-4">
+                                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                    <div class="font-bold text-teal-300 mb-1">Tahap 1: Replikasi DNA</div>
+                                    Materi genetik tunggal diduplikasi secara eksak, bersiap untuk dialokasikan ke kedua ujung sel induk.
+                                </div>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                    <div class="font-bold text-teal-300 mb-1">Tahap 2: Pembentukan Sekat</div>
+                                    Membran sel dan dinding sel mulai melekuk di bagian tengah membentuk sekat (septum) pembatas.
+                                </div>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                    <div class="font-bold text-teal-300 mb-1">Tahap 3: Pemisahan Sel</div>
+                                    Kedua sel anakan terpisah utuh dan menjadi organisme mandiri berkarakter persis induknya.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Paraseksual: Rekombinasi Genetik -->
+                        <div class="space-y-6">
+                            <h3 class="text-lg font-bold text-pink-400 border-b border-slate-800 pb-2">2. Rekombinasi Genetik (Paraseksual)</h3>
+                            <p class="text-xs text-slate-400">
+                                Rekombinasi genetik sangat penting karena memungkinkan bakteri bertukar materi genetik (seperti gen ketahanan antibiotik) agar tetap bisa sintas menghadapi seleksi alam atau desinfektan ekstrem. Ada 3 metode utama:
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Transformasi -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <div class="px-2 py-1 bg-teal-500/10 text-teal-300 text-xs font-bold rounded inline-block">1. Transformasi</div>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Transfer DNA Bebas</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">
+                                            Bakteri mengambil potongan DNA bebas dari lingkungan luar yang berasal dari sisa-sisa sel bakteri lain yang telah lisis/hancur. DNA bebas tersebut lalu diintegrasikan ke kromosom bakteri inang.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl mt-4 text-[10px] text-slate-500 italic">
+                                        💡 Contoh: Dibuktikan oleh eksperimen Frederick Griffith pada bakteri <span class="italic">Streptococcus pneumoniae</span> tipe kasar jadi tipe halus yang mematikan.
+                                    </div>
+                                </div>
+
+                                <!-- Transduksi -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <div class="px-2 py-1 bg-green-500/10 text-green-300 text-xs font-bold rounded inline-block">2. Transduksi</div>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Perantara Virus (Bakteriofage)</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">
+                                            Pemindahan materi genetik dari satu bakteri ke bakteri lain dengan bantuan pembawa / vektor virus bakteri (bakteriofage). Saat virus merakit tubuhnya di bakteri inang lama, DNA bakteri lama kadang tidak sengaja terbawa ke bakteri inang baru.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl mt-4 text-[10px] text-slate-500 italic">
+                                        💡 Contoh: Ditemukan oleh Lederberg dan Zinder tahun 1952 pada bakteri <span class="italic">Salmonella</span>.
+                                    </div>
+                                </div>
+
+                                <!-- Konjugasi -->
+                                <div class="p-5 bg-slate-900/40 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <div class="px-2 py-1 bg-purple-500/10 text-purple-300 text-xs font-bold rounded inline-block">3. Konjugasi</div>
+                                        <h4 class="text-md font-bold mt-3 mb-2 text-white">Kontak Langsung Jembatan</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed">
+                                            Pemindahan materi genetik (seringkali berupa <strong class="text-slate-300">Plasmid F-faktor</strong>) secara langsung dari satu sel bakteri donor (sel $F^+$) ke bakteri resipien (sel $F^-$) melalui jembatan sitoplasma sementara bernama <strong class="text-slate-300">Pili Seks (Sex Pili)</strong>.
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl mt-4 text-[10px] text-slate-500 italic">
+                                        💡 Contoh: Cara penyebaran tercepat sifat kebal antibiotik di rumah sakit! Bakteri donor mentransfer materi ketahanan plasim kepada koloni di sekitarnya.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 6: PERANAN BAKTERI (MENGUNTUNGKAN & PATOGEN) -->
+                <section id="tab-peranan" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="peranan-main-card">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 bg-teal-500/10 text-teal-400 rounded-xl">🍏</span>
+                            <h2 class="text-2xl md:text-3xl font-extrabold">Dampak & Peranan Bakteri bagi Manusia</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Di awal pembelajaran kita selalu dihantui opini bahwa bakteri melulu merugikan dan kotor. Faktanya, mayoritas bakteri justru sangat vital menyokong biosfer dan dimanfaatkan di industri makanan, farmasi, pertanian, hingga bioremediasi lingkungan! Mari kita bandingkan peran menguntungkan dan merugikan (patogen).
+                        </p>
+
+                        <!-- Interactive Filter System -->
+                        <div class="mb-6 flex flex-wrap gap-2">
+                            <button onclick="filterPeran('all')" class="peran-filter-btn px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-bold transition-all border border-slate-700 active-filter">
+                                Tampilkan Semua
+                            </button>
+                            <button onclick="filterPeran('untung')" class="peran-filter-btn px-4 py-2 bg-slate-900/50 hover:bg-slate-800 text-slate-400 rounded-lg text-xs font-semibold transition-all">
+                                👍 Menguntungkan (Industri/Pertanian)
+                            </button>
+                            <button onclick="filterPeran('rugi')" class="peran-filter-btn px-4 py-2 bg-slate-900/50 hover:bg-slate-800 text-slate-400 rounded-lg text-xs font-semibold transition-all">
+                                👎 Merugikan (Patogen Manusia)
+                            </button>
+                        </div>
+
+                        <!-- Table Grid of Roles -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="peran-grid">
+                            <!-- Yoghurt -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="untung">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 text-lg rounded-lg">🍦</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Lactobacillus bulgaricus & Streptococcus thermophilus</h4>
+                                    <p class="text-[10px] text-teal-400 mt-0.5">Produksi Yogurt & Olahan Susu</p>
+                                    <p class="text-xs text-slate-400 mt-1">Mengubah laktosa (gula susu) menjadi asam laktat melalui fermentasi, menurunkan pH sehingga susu menggumpal.</p>
+                                </div>
+                            </div>
+
+                            <!-- Nata de coco -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="untung">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 text-lg rounded-lg">🥥</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Acetobacter xylinum</h4>
+                                    <p class="text-[10px] text-teal-400 mt-0.5">Produksi Nata de Coco</p>
+                                    <p class="text-xs text-slate-400 mt-1">Merubah gula dalam air kelapa menjadi serat selulosa tebal putih kenyal berkualitas tinggi.</p>
+                                </div>
+                            </div>
+
+                            <!-- Rhizobium -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="untung">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 text-lg rounded-lg">🌱</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Rhizobium leguminosarum</h4>
+                                    <p class="text-[10px] text-teal-400 mt-0.5">Penyubur Tanah / Fiksasi Nitrogen</p>
+                                    <p class="text-xs text-slate-400 mt-1">Bersimbiosis membentuk bintil akar pada tanaman polong-polongan untuk mengikat gas nitrogen bebas ($N_2$) dari udara bebas.</p>
+                                </div>
+                            </div>
+
+                            <!-- Streptomyces -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="untung">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 text-lg rounded-lg">💊</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Streptomyces griseus</h4>
+                                    <p class="text-[10px] text-teal-400 mt-0.5">Antibiotik Alami</p>
+                                    <p class="text-xs text-slate-400 mt-1">Sintesis antibiotik Streptomisin untuk memerangi infeksi bakteri patogen lainnya.</p>
+                                </div>
+                            </div>
+
+                            <!-- Tifus -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="rugi">
+                                <span class="p-2 bg-red-500/10 text-red-400 text-lg rounded-lg">🤒</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Salmonella typhi</h4>
+                                    <p class="text-[10px] text-pink-400 mt-0.5">Penyebab Penyakit Tifus</p>
+                                    <p class="text-xs text-slate-400 mt-1">Menginfeksi organ saluran cerna usus halus manusia akibat higienitas makanan/minuman yang sangat buruk.</p>
+                                </div>
+                            </div>
+
+                            <!-- Sifilis -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="rugi">
+                                <span class="p-2 bg-red-500/10 text-red-400 text-lg rounded-lg">⚔️</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Treponema pallidum</h4>
+                                    <p class="text-[10px] text-pink-400 mt-0.5">Penyebab Sifilis (Raja Singa)</p>
+                                    <p class="text-xs text-slate-400 mt-1">Penyakit menular seksual berbahaya yang melukai organ intim dan merusak saraf pusat di stadium lanjut.</p>
+                                </div>
+                            </div>
+
+                            <!-- Gonore -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="rugi">
+                                <span class="p-2 bg-red-500/10 text-red-400 text-lg rounded-lg">🩹</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Neisseria gonorrhoeae</h4>
+                                    <p class="text-[10px] text-pink-400 mt-0.5">Penyebab Kencing Nanah (Gonore)</p>
+                                    <p class="text-xs text-slate-400 mt-1">Menginfeksi mukosa uretra saluran kemih mengakibatkan keluarnya nanah menyakitkan saat buang air kecil.</p>
+                                </div>
+                            </div>
+
+                            <!-- Tetanus -->
+                            <div class="peran-card p-4 bg-slate-900/40 rounded-xl border border-slate-800 flex items-start space-x-3" data-type="rugi">
+                                <span class="p-2 bg-red-500/10 text-red-400 text-lg rounded-lg">🛡️</span>
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Clostridium tetani</h4>
+                                    <p class="text-[10px] text-pink-400 mt-0.5">Penyebab Tetanus Kejang Otot</p>
+                                    <p class="text-xs text-slate-400 mt-1">Anaerob obligat menghasilkan eksotoksin tetanospasmin yang merusak sistem saraf motorik sehingga otot mengejang kaku parah.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 7: STUDY ROOM & INTERACTIVE QUIZ -->
+                <section id="tab-uji" class="tab-content hidden space-y-12 animate-fadeIn">
+                    
+                    <!-- Flashcards Sub-section -->
+                    <div class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800" id="flashcard-section">
+                        <h3 class="text-xl font-extrabold mb-4 flex items-center">
+                            <span>🃏</span> <span class="ml-2">Flashcard Istilah Kunci Ulangan</span>
+                        </h3>
+                        <p class="text-slate-400 text-xs mb-6">Ketuk kartu di bawah ini untuk melihat arti/jawabannya. Melatih ingatan cepat!</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                            <!-- Card 1 -->
+                            <div class="group h-40 [perspective:1000px] cursor-pointer" onclick="toggleCard(this)">
+                                <div class="relative h-full w-full rounded-2xl border border-slate-800 bg-slate-900/80 transition-all duration-500 [transform-style:preserve-3d] shadow-lg group-hover:border-teal-500/30">
+                                    <!-- Front -->
+                                    <div class="absolute inset-0 flex flex-col justify-between p-5 [backface-visibility:hidden]">
+                                        <span class="text-[10px] text-teal-400 font-bold tracking-widest uppercase">KATA KUNCI 1</span>
+                                        <span class="text-md font-bold text-white text-center">Peptidoglikan</span>
+                                        <span class="text-[10px] text-slate-500 text-right">Tap untuk Balik 🔄</span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="absolute inset-0 h-full w-full rounded-2xl bg-teal-950 p-5 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center">
+                                        <p class="text-xs text-teal-200 leading-relaxed text-center">
+                                            Polimer gula jala protein penyusun kerangka kaku dinding sel Eubacteria sejati. Sangat tebal di bakteri Gram-Positif!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="group h-40 [perspective:1000px] cursor-pointer" onclick="toggleCard(this)">
+                                <div class="relative h-full w-full rounded-2xl border border-slate-800 bg-slate-900/80 transition-all duration-500 [transform-style:preserve-3d] shadow-lg group-hover:border-teal-500/30">
+                                    <!-- Front -->
+                                    <div class="absolute inset-0 flex flex-col justify-between p-5 [backface-visibility:hidden]">
+                                        <span class="text-[10px] text-teal-400 font-bold tracking-widest uppercase">KATA KUNCI 2</span>
+                                        <span class="text-md font-bold text-white text-center">Plasmid</span>
+                                        <span class="text-[10px] text-slate-500 text-right">Tap untuk Balik 🔄</span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="absolute inset-0 h-full w-full rounded-2xl bg-teal-950 p-5 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center">
+                                        <p class="text-xs text-teal-200 leading-relaxed text-center">
+                                            DNA non-kromosom sirkuler ekstra di luar DNA inti utama bakteri yang membawa sifat ketahanan antibiotik (faktor R).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="group h-40 [perspective:1000px] cursor-pointer" onclick="toggleCard(this)">
+                                <div class="relative h-full w-full rounded-2xl border border-slate-800 bg-slate-900/80 transition-all duration-500 [transform-style:preserve-3d] shadow-lg group-hover:border-teal-500/30">
+                                    <!-- Front -->
+                                    <div class="absolute inset-0 flex flex-col justify-between p-5 [backface-visibility:hidden]">
+                                        <span class="text-[10px] text-teal-400 font-bold tracking-widest uppercase">KATA KUNCI 3</span>
+                                        <span class="text-md font-bold text-white text-center">Endospora</span>
+                                        <span class="text-[10px] text-slate-500 text-right">Tap untuk Balik 🔄</span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="absolute inset-0 h-full w-full rounded-2xl bg-teal-950 p-5 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center">
+                                        <p class="text-xs text-teal-200 leading-relaxed text-center">
+                                            Spora dorman sangat tebal sebagai alat pertahanan ekstrim genus <span class="italic text-white font-semibold">Bacillus</span> dan <span class="italic text-white font-semibold">Clostridium</span>. Bukan alat perkembangbiakan!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUIZ SECTION -->
+                    <div id="ruang-uji" class="p-6 md:p-8 rounded-3xl glass-card border border-slate-800">
+                        <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl">🧠</span>
+                                <h2 class="text-2xl md:text-3xl font-extrabold">Uji Pemahaman Komprehensif</h2>
+                            </div>
+                            <span class="px-3 py-1 bg-teal-500/10 text-teal-300 text-xs font-semibold rounded-lg border border-teal-500/20">
+                                10 Soal Ulangan Harian
+                            </span>
+                        </div>
+
+                        <!-- Active Quiz Container -->
+                        <div id="quiz-container">
+                            <div class="mb-4 flex justify-between items-center text-xs text-slate-500">
+                                <span>Kemajuan Soal: <strong id="current-question-num" class="text-teal-400">1</strong> dari 10</span>
+                                <span id="quiz-timer" class="font-mono text-emerald-400">Ayo Berlatih!</span>
+                            </div>
+                            
+                            <!-- Question Text -->
+                            <div class="p-5 bg-slate-950 rounded-2xl border border-slate-900 mb-6">
+                                <h3 id="question-text" class="text-sm md:text-base font-bold text-white leading-relaxed">
+                                    Menampilkan pertanyaan...
+                                </h3>
+                            </div>
+
+                            <!-- Options Grid -->
+                            <div class="grid grid-cols-1 gap-3" id="quiz-options">
+                                <!-- Dynamically Rendered Options -->
+                            </div>
+
+                            <!-- Navigation Buttons & Explanations -->
+                            <div id="explanation-box" class="mt-6 p-4 bg-teal-950/20 rounded-xl border border-teal-900/30 text-xs text-teal-300 leading-relaxed hidden">
+                                <div class="font-bold text-yellow-400 mb-1 flex items-center">
+                                    <span>💡</span> <span class="ml-1">Penjelasan & Pembahasan Siswa:</span>
+                                </div>
+                                <p id="explanation-text"></p>
+                            </div>
+
+                            <div class="mt-8 flex justify-between">
+                                <button id="quiz-prev-btn" onclick="prevQuestion()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-400 text-xs font-bold rounded-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                                    Sebelumnya
+                                </button>
+                                <button id="quiz-next-btn" onclick="nextQuestion()" class="px-5 py-2 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white text-xs font-bold rounded-xl transition-all shadow-md">
+                                    Selanjutnya / Periksa
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Score Result Page (Hidden by default) -->
+                        <div id="quiz-result" class="hidden text-center py-8 space-y-6">
+                            <div class="inline-flex p-6 bg-teal-500/10 rounded-full text-teal-400">
+                                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-white">Sesi Uji Coba Selesai!</h3>
+                            <div class="max-w-xs mx-auto p-4 bg-slate-900 rounded-2xl border border-slate-800">
+                                <div class="text-[10px] text-slate-500 uppercase tracking-widest">Skor Akhir Kamu</div>
+                                <div class="text-5xl font-black text-teal-400 mt-2" id="score-display">0/100</div>
+                                <p id="score-grade" class="text-xs text-slate-400 mt-2">Bagus sekali, ulangi lagi untuk pemahaman mutlak!</p>
+                            </div>
+                            <button onclick="resetQuiz()" class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold text-sm rounded-xl hover:shadow-lg transition-all shadow-md">
+                                Ulangi Ujian Kuis 🔄
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER / CREDIT -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 mt-20 text-xs text-slate-500 transition-colors duration-300" id="footer-theme">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="text-md font-bold tracking-tight text-teal-400">BioLogika</span>
+                <p class="text-slate-500 leading-relaxed max-w-sm">
+                    Catatan Belajar Interaktif untuk mendukung pembelajaran bermutu tingkat sekolah menengah atas. Dibangun dengan cinta, logika, dan secangkir teh hangat.
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-end space-y-2">
+                <span>Didesain dan ditulis oleh seorang Siswa Kelas X IPA untuk rekan-rekan pembelajar.</span>
+                <span class="text-slate-600">Hak Cipta Terbuka &copy; 2026. Bebas dibagikan untuk media edukasi non-komersial.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE APP JAVASCRIPT -->
+    <script>
+        // Theme Management (Light vs Dark Slate UI)
+        let isDarkMode = true;
+        const bodyTheme = document.getElementById('body-theme');
+        const headerTheme = document.getElementById('header-theme');
+        const footerTheme = document.getElementById('footer-theme');
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeSun = document.getElementById('theme-sun');
+        const heroBg = document.getElementById('hero-bg');
+        const heroSub = document.getElementById('hero-sub');
+
+        themeBtn.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                // Switch to Dark Theme
+                bodyTheme.className = "bg-slate-950 text-slate-100 transition-colors duration-300";
+                headerTheme.className = "sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 transition-colors duration-300";
+                footerTheme.className = "bg-slate-900 border-t border-slate-800 py-12 mt-20 text-xs text-slate-500 transition-colors duration-300";
+                heroBg.className = "relative overflow-hidden bg-slate-950 pt-12 pb-20 border-b border-slate-900 transition-colors duration-300";
+                heroSub.className = "text-lg text-slate-400 mb-8 leading-relaxed";
+                themeSun.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>`;
+                themeBtn.className = "p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 focus:outline-none transition-all";
+            } else {
+                // Switch to Premium Light Theme (Crisp, clean medical lab vibe)
+                bodyTheme.className = "bg-slate-50 text-slate-800 transition-colors duration-300";
+                headerTheme.className = "sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-teal-100 transition-colors duration-300";
+                footerTheme.className = "bg-slate-100 border-t border-teal-100 py-12 mt-20 text-xs text-slate-500 transition-colors duration-300";
+                heroBg.className = "relative overflow-hidden bg-teal-50 pt-12 pb-20 border-b border-teal-100 transition-colors duration-300";
+                heroSub.className = "text-lg text-slate-600 mb-8 leading-relaxed";
+                themeSun.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>`;
+                themeBtn.className = "p-2 rounded-lg bg-teal-100 hover:bg-teal-200 text-teal-800 focus:outline-none transition-all";
+            }
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Handle Desktop Nav Active Styles
+            const desktopNavButtons = document.querySelectorAll('#desktop-nav button');
+            desktopNavButtons.forEach(btn => {
+                btn.className = "tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-slate-400 hover:bg-slate-900";
+            });
+
+            // Find clicked button inside desktop nav
+            const activeBtn = Array.from(desktopNavButtons).find(btn => btn.getAttribute('onclick').includes(tabId));
+            if (activeBtn) {
+                activeBtn.className = "tab-btn w-full text-left px-4 py-3 rounded-xl flex items-center space-x-3 transition-all text-teal-400 bg-slate-900 border-l-4 border-teal-500";
+            }
+
+            // Handle Mobile Nav Active Styles
+            const mobileBtns = document.querySelectorAll('#mobile-nav button');
+            mobileBtns.forEach(btn => {
+                btn.className = "tab-btn-mobile px-4 py-2 bg-slate-900/50 text-slate-400 rounded-xl text-sm font-medium transition-all";
+            });
+            const activeMobileBtn = Array.from(mobileBtns).find(btn => btn.getAttribute('onclick').includes(tabId));
+            if (activeMobileBtn) {
+                activeMobileBtn.className = "tab-btn-mobile px-4 py-2 bg-slate-900 text-teal-400 border border-teal-500/30 rounded-xl text-sm font-semibold transition-all";
+            }
+        }
+
+        // Interactive Bacterial Anatomy Data & Clicking Engine
+        const partData = {
+            kapsul: {
+                title: "Lapisan Kapsul (Lendir Pelindung)",
+                badge: "Lapisan Terluar (Glikokaliks)",
+                desc: "Kapsul tersusun atas bahan polimer gula (polisakarida) tebal berlendir. Fungsi utamanya adalah melindungi sel bakteri dari dehidrasi ekstrim, menempel erat pada objek/substrat lingkungan, serta melindungi dari proses pembersihan sistem pertahanan tubuh inang (fagositosis sel darah putih).",
+                takeaway: "Bakteri dengan kapsul tebal itu adalah jenis patogen berbahaya (misal Streptococcus pneumoniae tipe kapsul ganas), sedangkan jenis bakteri tanpa kapsul tidak mematikan karena gampang dihancurkan imun kita!"
+            },
+            dinding: {
+                title: "Dinding Sel (Peptidoglikan)",
+                badge: "Pemberi Bentuk & Pelindung",
+                desc: "Berada tepat di bawah kapsul, dinding sel bakteri tersusun utuh atas Peptidoglikan (gabungan jala rantai asam amino dan karbohidrat glikoprotein). Berfungsi mempertahankan kekakuan bentuk sel serta menjaga sel agar tidak lisis (pecah) akibat fluktuasi tekanan osmotik lingkungan.",
+                takeaway: "Ini yang membedakan Archaebacteria dan Eubacteria. Archaea tidak punya peptidoglikan sejati, sedangkan Eubacteria punya tebal/tipis yang nanti membedakan Gram Positif (tebal, warna ungu) vs Gram Negatif (tipis, warna merah/pink)."
+            },
+            membran: {
+                title: "Membran Sel (Plasmalema)",
+                badge: "Mengatur Keluar-Masuk Zat",
+                desc: "Merupakan fosfolipid bilayer semipermeabel yang mengelilingi seluruh sitoplasma. Fungsinya mengontrol transpor nutrisi dan pembuangan zat sisa sel secara aktif, serta mengandung enzim-enzim penting untuk respirasi energi seluler bakteri.",
+                takeaway: "Membran sel bakteri tidak mengandung kolesterol seperti eukariot. Di beberapa tempat, membran melekuk ke dalam membentuk organel bernama Mesosom untuk efisiensi energi."
+            },
+            nukleoid: {
+                title: "Nukleoid (DNA Utama)",
+                badge: "Pusat Kendali Informasi",
+                desc: "Berupa DNA untai ganda panjang sirkuler tanpa protein histon pengemas kompleks yang mengapung bebas di sitoplasma (tanpa dilapisi membran inti sel/prokariot). Membawa seluruh instruksi hidup mutlak sel bakteri.",
+                takeaway: "Ingat! Prokariot = 'Pro' (sebelum) + 'Karyon' (inti). Artinya inti selnya telanjang tanpa pembungkus membran. Inilah DNA utama bakteri!"
+            },
+            plasmid: {
+                title: "Plasmid (DNA Aksesoris Ekstra)",
+                badge: "Genetik Tempel Mandiri",
+                desc: "DNA sirkuler kecil tambahan di luar kromosom utama yang dapat mereplikasi diri secara independen. Plasmid tidak vital untuk hidup sehari-hari, namun membawa sifat adaptasi ekstrim luar biasa seperti membawa gen penolak / ketahanan terhadap jenis antibiotik komersial.",
+                takeaway: "Melalui proses paraseksual bernama Konjugasi, plasmid pembawa sifat super kebal antibiotik ini ditransfer langsung ke bakteri lain sekitarnya. Ini bahaya klinis yang bikin super-bakteri kebal obat!"
+            },
+            ribosom: {
+                title: "Ribosom (Tipe 70S)",
+                badge: "Pabrik Sintesis Protein",
+                desc: "Butiran halus yang melimpah di sitoplasma, berfungsi menerjemahkan cetak biru genetik dari mRNA untuk mensintesis rangkaian rantai protein penting bagi fungsi seluler harian bakteri.",
+                takeaway: "Ukuran ribosom bakteri (70S) lebih kecil daripada sel kita (80S). Perbedaan ukuran inilah yang dieksploitasi antibiotik tertentu untuk menghancurkan ribosom bakteri tanpa melukai ribosom sel tubuh kita."
+            },
+            flagela: {
+                title: "Flagela (Bulu Cambuk Gerak)",
+                badge: "Motor Pendorong Sel",
+                desc: "Struktur silindris fleksibel memanjang yang menyembul dari dinding sel, tersusun atas molekul protein Flagelin. Berfungsi mendorong sel berenang aktif menuju sumber nutrisi (kemotaksis positif) atau menghindari zat kimia beracun.",
+                takeaway: "Jumlah flagela bervariasi dari satu (Monotrik), seikat di satu ujung (Lofotrik), satu di tiap ujung (Amfitrik), tersebar merata (Peritrik), atau gundul tanpa flagel (Atrik)."
+            },
+            mesosom: {
+                title: "Mesosom (Pelekukan Membran)",
+                badge: "Pusat Generator Energi",
+                desc: "Pelekukan membran sel ke arah dalam sitoplasma. Mengandung tumpukan enzim pernapasan sel untuk transfer elektron, berfungsi menghasilkan energi molekuler (ATP) bagi metabolisme sel bakteri, serta membantu penarikan sekat saat proses pembelahan biner.",
+                takeaway: "Sederhananya: karena bakteri prokariotik tidak punya mitokondria, mesosom bertindak sebagai organel tiruan yang membantu fungsi pernapasan sel!"
+            }
+        };
+
+        function selectPart(partKey) {
+            const data = partData[partKey];
+            if (!data) return;
+
+            // Highlight in card
+            const infoBox = document.getElementById('part-info-box');
+            infoBox.style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('part-badge').innerText = data.badge;
+                document.getElementById('part-title').innerText = data.title;
+                document.getElementById('part-description').innerText = data.desc;
+                document.getElementById('part-student-takeaway').innerText = data.takeaway;
+                
+                // Color coordination for visual premium feel
+                if(partKey === 'flagela') {
+                    infoBox.style.background = 'rgba(244, 63, 94, 0.1)';
+                    infoBox.style.borderColor = 'rgba(244, 63, 94, 0.3)';
+                } else if(partKey === 'kapsul') {
+                    infoBox.style.background = 'rgba(13, 148, 136, 0.1)';
+                    infoBox.style.borderColor = 'rgba(13, 148, 136, 0.3)';
+                } else if(partKey === 'dinding') {
+                    infoBox.style.background = 'rgba(34, 197, 94, 0.1)';
+                    infoBox.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                } else if(partKey === 'nukleoid') {
+                    infoBox.style.background = 'rgba(245, 158, 11, 0.1)';
+                    infoBox.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+                } else if(partKey === 'plasmid') {
+                    infoBox.style.background = 'rgba(168, 85, 247, 0.1)';
+                    infoBox.style.borderColor = 'rgba(168, 85, 247, 0.3)';
+                } else {
+                    infoBox.style.background = 'rgba(59, 130, 246, 0.1)';
+                    infoBox.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                }
+                
+                infoBox.style.opacity = '1';
+            }, 150);
+
+            // Toggle highlight colors on SVG borders visually
+            const svgElements = {
+                kapsul: 'svg-kapsul',
+                dinding: 'svg-dinding',
+                membran: 'svg-membran',
+                nukleoid: 'svg-nukleoid',
+                mesosom: 'svg-mesosom'
+            };
+
+            // Softly reset outline strengths
+            Object.values(svgElements).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.setAttribute('stroke-width', el.id === 'svg-kapsul' ? '8' : (el.id === 'svg-dinding' ? '5' : '3'));
+            });
+
+            // Boost stroke width of clicked element
+            const activeId = svgElements[partKey];
+            if (activeId) {
+                const activeEl = document.getElementById(activeId);
+                if (activeEl) activeEl.setAttribute('stroke-width', '10');
+            }
+        }
+
+        // Morfologi / Roles Filter engine
+        function filterPeran(type) {
+            const cards = document.querySelectorAll('.peran-card');
+            cards.forEach(card => {
+                if (type === 'all' || card.getAttribute('data-type') === type) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update active style of filter buttons
+            const filterBtns = document.querySelectorAll('.peran-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.className = "peran-filter-btn px-4 py-2 bg-slate-900/50 hover:bg-slate-800 text-slate-400 rounded-lg text-xs font-semibold transition-all";
+            });
+            event.target.className = "peran-filter-btn px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-bold transition-all border border-slate-700 active-filter";
+        }
+
+        // Toggle Flashcards
+        function toggleCard(cardWrapper) {
+            const innerCard = cardWrapper.firstElementChild;
+            innerCard.style.transform = innerCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        }
+
+        // --- COMPREHENSIVE BIOLOGY QUIZ ENGINE ---
+        const quizQuestions = [
+            {
+                q: "Berikut ini adalah salah satu cara membuktikan bahwa bakteri adalah organisme hidup, yaitu dengan cara...",
+                options: [
+                    "Mengamati unsur-unsur kimia menyusun inti tubuhnya",
+                    "Membiakkannya pada medium bernutrisi steril yang sesuai",
+                    "Mengamati morfologi menggunakan mikroskop elektron",
+                    "Mengamati bahwa bakteri memiliki plasmid pembawa sifat ketahanan",
+                    "Mengeringkan dan membekukannya dalam ruang steril"
+                ],
+                correct: 1,
+                explanation: "Sesuai postulat biologi umum, bukti kuat suatu objek dikatakan hidup jika ia dapat melakukan metabolisme, berkembangbiak, dan tumbuh. Dengan membiakkan bakteri pada medium bernutrisi steril yang sesuai, kita bisa menyaksikan proses pertumbuhan koloni bakteri tersebut."
+            },
+            {
+                q: "Mengapa kita dilarang membuang larutan pembersih lantai yang mengandung antiseptik atau kreolin langsung ke dalam saluran WC/lubang kakus?",
+                options: [
+                    "Karena antiseptik dapat menyumbat pori-pori tanah peresapan air",
+                    "Karena akan mengikis permukaan pipa PVC saluran air kakus",
+                    "Karena antiseptik membunuh bakteri pengurai tinja yang krusial bagi ekosistem septictank",
+                    "Karena akan memicu pembentukan gas metana yang mudah terbakar",
+                    "Karena antiseptik merangsang pembelahan biner lisis bakteri patogen"
+                ],
+                correct: 2,
+                explanation: "Lisol/kreolin mengandung fenol antiseptik kuat yang membunuh bakteri secara merata. Jika dibuang ke kakus, ia akan mematikan bakteri saprofit/pengurai organik yang hidup di lubang tinja. Dampaknya, tinja tidak terurai secara alamiah dan septic tank cepat penuh."
+            },
+            {
+                q: "Bakteri yang mengikat nitrogen udara dengan bersimbiosis membentuk struktur bintil akar pada tanaman suku polong-polongan (Fabaceae) adalah...",
+                options: [
+                    "Rhizobium leguminosarum",
+                    "Azotobacter chroococcum",
+                    "Nitrobacter sp.",
+                    "Nitrosomonas sp.",
+                    "Agrobacterium tumefaciens"
+                ],
+                correct: 0,
+                explanation: "Rhizobium leguminosarum adalah bakteri tanah yang melakukan simbiosis mutualisme membentuk bintil akar dengan tanaman polong-polongan. Rhizobium mengikat nitrogen udara untuk tanaman, sedangkan tanaman menyuplai senyawa nutrisi hasil fotosintesis bagi bakteri."
+            },
+            {
+                q: "Bakteri Gram-negatif secara umum terbukti jauh lebih resisten (kebal) terhadap serangan antibiotik penisilin dibandingkan dengan bakteri Gram-positif. Faktor penyebab mutlak hal ini adalah...",
+                options: [
+                    "Dinding sel bakteri Gram-negatif dilapisi peptidoglikan yang sangat tebal",
+                    "Bakteri Gram-negatif memiliki pili seks yang mampu menghancurkan molekul antibiotik",
+                    "Bakteri Gram-negatif memiliki membran luar kompleks tersusun atas Lipopolisakarida (LPS) pelindung eksternal",
+                    "Bakteri Gram-negatif tidak bermembran inti prokariotik",
+                    "Gram-negatif memiliki flagela peritrik yang dapat berenang kabur sangat cepat"
+                ],
+                correct: 2,
+                explanation: "Membran luar lipopolisakarida (LPS) pada bakteri Gram-negatif bertindak sebagai barier perlindungan ekstra yang menghalangi difusi senyawa antibiotik, seperti penisilin, masuk merusak pembentukan peptidoglikan tipis di bawahnya."
+            },
+            {
+                q: "Mengapa bakteri tidak dapat melakukan reproduksi secara seksual sejati?",
+                options: [
+                    "Karena bakteri berukuran mikroskopis uniseluler",
+                    "Karena bakteri tidak memiliki organ kelamin jantan/betina dan tidak membentuk gamet melalui proses meiosis",
+                    "Karena bakteri tidak memiliki plasmid untuk reproduksi",
+                    "Karena bakteri hanya hidup sebagai parasit anaerob obligat",
+                    "Karena materi genetik bakteri bertipe RNA sirkuler"
+                ],
+                correct: 1,
+                explanation: "Reproduksi seksual sejati mengharuskan terbentuknya sel gamet jantan dan betina haploid melalui pembelahan meiosis, diikuti fertilisasi. Bakteri tidak memiliki sel kelamin dan siklus tersebut. Bakteri bertukar gen melalui rekombinasi paraseksual."
+            },
+            {
+                q: "Jika kondisi lingkungan sekitar memburuk secara ekstrim (kekeringan, suhu mendidih, paparan radiasi), bakteri genus Bacillus melindungi material genetiknya dengan membentuk...",
+                options: [
+                    "Kapsid tebal berlapis lilin",
+                    "Pili seks konjugasi yang kaku",
+                    "Endospora dorman berprotein keratin tebal",
+                    "Mesosom besar penghasil energi cadangan",
+                    "Plasmid ekstra untuk replikasi darurat"
+                ],
+                correct: 2,
+                explanation: "Endospora adalah spora pertahanan internal (dorman) yang dibentuk oleh bakteri tertentu saat lingkungan ekstrim. Ini menghentikan metabolisme sel dan membungkus DNA bakteri dalam selubung keratin tebal pelindung hingga lingkungan membaik."
+            },
+            {
+                q: "Metode rekombinasi paraseksual bakteri di mana terjadi transfer potongan DNA bebas secara langsung dari lingkungan luar akibat kematian/lisis sel inang lain dinamakan...",
+                options: [
+                    "Transduksi",
+                    "Transformasi",
+                    "Konjugasi",
+                    "Pembelahan biner",
+                    "Kemosintesis"
+                ],
+                correct: 1,
+                explanation: "Transformasi adalah penyerapan materi genetik bebas dari lingkungan sekitar langsung ke dalam sel bakteri tanpa bantuan perantara virus maupun kontak jembatan fisik langsung antarsel."
+            },
+            {
+                q: "Bakteri yang mengoksidasi senyawa amonia ($NH_3$) menjadi nitrit ($NO_2^-$) dalam siklus nitrogen penyuburan tanah di pertanian adalah...",
+                options: [
+                    "Nitrobacter",
+                    "Rhizobium",
+                    "Nitrosomonas dan Nitrosococcus",
+                    "Escherichia coli",
+                    "Clostridium tetani"
+                ],
+                correct: 2,
+                explanation: "Nitrosomonas dan Nitrosococcus adalah bakteri kemoautotrof penyubur tanah yang melakukan nitritasi (mengubah amonia berbahaya menjadi senyawa nitrit). Nitrit ini kemudian akan diubah menjadi nitrat penyubur tanaman oleh Nitrobacter."
+            },
+            {
+                q: "Jenis bakteri Archaebacteria yang hidup subur di habitat anaerob rawa-rawa atau saluran cerna ruminansia serta menghasilkan biogas metana adalah...",
+                options: [
+                    "Halofil ekstrem",
+                    "Termofilik",
+                    "Metanogen",
+                    "Kemoautotrof",
+                    "Gram-positif"
+                ],
+                correct: 2,
+                explanation: "Metanogen adalah kelompok bakteri purba Archaebacteria yang menggunakan gas hidrogen untuk mereduksi karbondioksida menjadi gas metana ($CH_4$). Hidup di tempat miskin oksigen (anaerob obligat)."
+            },
+            {
+                q: "Bakteri berbentuk batang lurus tunggal dinamakan...",
+                options: [
+                    "Monobasil",
+                    "Diplokokus",
+                    "Streptobasil",
+                    "Sarkina",
+                    "Spiroseta"
+                ],
+                correct: 0,
+                explanation: "Mono (satu) + Basil (batang). Menunjukkan morfologi bakteri batang tunggal seperti pada Escherichia coli."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswers = Array(quizQuestions.length).fill(null);
+        let confirmedAnswers = Array(quizQuestions.length).fill(false);
+
+        function renderQuestion() {
+            const questionNumDisplay = document.getElementById('current-question-num');
+            const questionText = document.getElementById('question-text');
+            const optionsBox = document.getElementById('quiz-options');
+            const expBox = document.getElementById('explanation-box');
+            const nextBtn = document.getElementById('quiz-next-btn');
+            const prevBtn = document.getElementById('quiz-prev-btn');
+
+            const currentQ = quizQuestions[currentQuestion];
+            
+            questionNumDisplay.innerText = currentQuestion + 1;
+            questionText.innerText = currentQ.q;
+            optionsBox.innerHTML = '';
+            
+            // Render options
+            currentQ.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-between ";
+                
+                // Styling base on selection and confirmation
+                if (confirmedAnswers[currentQuestion]) {
+                    btn.disabled = true;
+                    if (idx === currentQ.correct) {
+                        btn.className += "bg-emerald-950/40 border-emerald-500 text-emerald-300";
+                    } else if (idx === selectedAnswers[currentQuestion]) {
+                        btn.className += "bg-red-950/40 border-red-500 text-red-300";
+                    } else {
+                        btn.className += "bg-slate-900/10 border-slate-800 text-slate-500";
+                    }
+                } else {
+                    if (idx === selectedAnswers[currentQuestion]) {
+                        btn.className += "bg-teal-950/30 border-teal-500 text-teal-300 shadow-md shadow-teal-500/10";
+                    } else {
+                        btn.className += "bg-slate-900/30 border-slate-800 hover:border-slate-700 text-slate-300";
+                    }
+                }
+
+                btn.innerHTML = `<span>${String.fromCharCode(65 + idx)}. ${opt}</span>`;
+                
+                if (!confirmedAnswers[currentQuestion]) {
+                    btn.onclick = () => selectOption(idx);
+                }
+                optionsBox.appendChild(btn);
+            });
+
+            // Handle Navigation Buttons
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (confirmedAnswers[currentQuestion]) {
+                expBox.classList.remove('hidden');
+                document.getElementById('explanation-text').innerText = currentQ.explanation;
+                nextBtn.innerText = currentQuestion === quizQuestions.length - 1 ? "Lihat Hasil Skor Akhir" : "Soal Berikutnya";
+            } else {
+                expBox.classList.add('hidden');
+                nextBtn.innerText = "Periksa & Konfirmasi Jawaban";
+            }
+        }
+
+        function selectOption(idx) {
+            selectedAnswers[currentQuestion] = idx;
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (selectedAnswers[currentQuestion] === null) {
+                // Modalless custom notification
+                alertCustom("Silakan pilih salah satu opsi jawaban terlebih dahulu!");
+                return;
+            }
+
+            if (!confirmedAnswers[currentQuestion]) {
+                // Confirm answer phase
+                confirmedAnswers[currentQuestion] = true;
+                if (selectedAnswers[currentQuestion] === quizQuestions[currentQuestion].correct) {
+                    score += 10;
+                }
+                renderQuestion();
+            } else {
+                // Move to next question or complete quiz
+                if (currentQuestion < quizQuestions.length - 1) {
+                    currentQuestion++;
+                    renderQuestion();
+                } else {
+                    // Show final score
+                    showResults();
+                }
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result');
+            resultBox.classList.remove('hidden');
+            
+            const scoreDisp = document.getElementById('score-display');
+            scoreDisp.innerText = `${score}/100`;
+            
+            const gradeDisp = document.getElementById('score-grade');
+            if(score >= 80) {
+                gradeDisp.innerText = "Luar biasa hebat! Kamu benar-benar menguasai seluruh materi biologi bakteri ini layaknya siswa teladan.";
+                gradeDisp.className = "text-xs text-emerald-400 mt-2 font-bold";
+            } else if(score >= 60) {
+                gradeDisp.innerText = "Kerja bagus! Pemahaman kamu sudah di atas rata-rata kelas. Sedikit belajar lagi ya!";
+                gradeDisp.className = "text-xs text-yellow-400 mt-2 font-semibold";
+            } else {
+                gradeDisp.innerText = "Tetap semangat! Baca kembali materi struktur & fisiologi, lalu coba kuis ini sekali lagi.";
+                gradeDisp.className = "text-xs text-pink-400 mt-2";
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswers = Array(quizQuestions.length).fill(null);
+            confirmedAnswers = Array(quizQuestions.length).fill(false);
+            
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            
+            renderQuestion();
+        }
+
+        // Custom friendly overlay warning instead of native alert
+        function alertCustom(msg) {
+            // Create mini alert container overlay
+            const alertDiv = document.createElement('div');
+            alertDiv.className = "fixed bottom-5 right-5 p-4 bg-red-950 border border-red-500 rounded-xl text-xs text-red-200 z-50 shadow-xl transition-all duration-300 flex items-center space-x-3";
+            alertDiv.innerHTML = `<span>⚠️</span> <span>${msg}</span>`;
+            document.body.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.style.opacity = '0';
+                setTimeout(() => alertDiv.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize App on Window Load
+        window.onload = function () {
+            selectPart('kapsul'); // trigger default selection of Capsule on anatomy diagram
+            renderQuestion();     // start the quiz system
+        };
+    </script>
+</body>
+</html>
