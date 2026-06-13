@@ -49,13 +49,14 @@
     }
 
     .eyebrow {
+      color: var(--accent);
       display: inline-flex;
       align-items: center;
       padding: 8px 16px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.16);
-      color: #1c3aa9;
+          color: var(--accent);
+      background:rgba(56, 189, 248, 0.1);;
+      border: 1px solid  rgba(56, 189, 248, 0.18);
       font-size: 0.8rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -230,7 +231,7 @@
     }
 
     body.dark-mode {
-      --bg: #05070f;
+      --bg: linear-gradient(180deg, #05070f 0%, #081627 45%, #0c1728 100%);
       --surface: #0b1221;
       --surface-strong: #0f172c;
       --text: #f8fbff;
@@ -291,7 +292,7 @@
     }
 
     body.dark-mode .card-badge {
-      background: var(--accent);
+      background: #04415e;
       color: #ffffff;
     }
 
@@ -330,13 +331,14 @@
       const icon = button.querySelector('.toggle-icon');
       const label = button.querySelector('.toggle-label');
 
-      if (stored === 'dark') {
+      if (stored === 'light') {
+        body.classList.remove('dark-mode');
+        icon.textContent = '☀️';
+        label.textContent = 'Light mode';
+      } else {
         body.classList.add('dark-mode');
         icon.textContent = '🌙';
         label.textContent = 'Dark mode';
-      } else {
-        icon.textContent = '☀️';
-        label.textContent = 'Light mode';
       }
 
       button.addEventListener('click', function () {
@@ -348,7 +350,7 @@
     });
   </script>
 </head>
-<body>
+<body class="dark-mode">
   <main class="dashboard">
     <section class="hero">
       <div>
@@ -368,14 +370,21 @@
         <span class="card-badge">01</span>
         <h3>Bakteri Kelas X</h3>
         <p>Biologi, rangkuman materi Bakteri.</p>
-        <span class="arrow">Pelajari →</span>
+        <span class="arrow">Pelajari</span>
       </a>
       <a class="card-link" href="EkologiKelasX.html" target="_blank">
         <span class="card-icon">🧬</span>
-        <span class="card-badge">01</span>
+        <span class="card-badge">02</span>
         <h3>Ekologi Kelas X</h3>
         <p>Biologi, rangkuman materi Ekologi.</p>
-        <span class="arrow">Pelajari →</span>
+        <span class="arrow">Pelajari</span>
+      </a>
+      <a class="card-link" href="FungiKelasX.html" target="_blank">
+        <span class="card-icon">🧬</span>
+        <span class="card-badge">03</span>
+        <h3>Fungi Kelas X</h3>
+        <p>Biologi, rangkuman materi Fungi.</p>
+        <span class="arrow">Pelajari</span>
       </a>
     </section>
 
